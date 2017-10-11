@@ -10,5 +10,8 @@
         <file>GridImages.qml</file>
         <file>Images/radio1.png</file>
         <file>Images/phone1.png</file>
+        <file>Time.qml</file>
+        <file>HomeButton.qml</file>
+        <file>Background.qml</file>
     </qresource>
 </RCC>
