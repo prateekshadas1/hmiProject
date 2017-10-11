@@ -10,9 +10,9 @@ Window {
     height: 600
     id: window
     title: qsTr("Main Menu")
-    Image{
+    Image
+    {
         anchors.fill:parent
-
         source:"Images/backgroud screen1.jpg"
     }
     Item{
