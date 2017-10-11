@@ -97,6 +97,7 @@ Item{
 
 
 
+
           cellWidth: grid.width*0.3; cellHeight: grid.height*0.5
 
 
@@ -111,7 +112,6 @@ Item{
 
               Image {
                   id: myIcon
-                  y: 50
                   anchors.horizontalCenter: parent.horizontalCenter
                   source: icon
                   width: grid.width*0.125
