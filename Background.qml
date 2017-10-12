@@ -6,7 +6,6 @@ Item {
     Image
     {
         source:"Images/backgroud screen1.jpg"
-       // fillMode: Image.PreserveAspectFit
         height:mainScreenHeight
         width: mainScreenWidth
     }

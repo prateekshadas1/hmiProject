@@ -47,9 +47,13 @@ Window
     }
 
     GridImages
-    {
+    {   id:grid
         mainScreenHeight: window.height
         mainScreenWidth: window.width
+    }
+
+    Component.onCompleted: {
+        grid.refresh()
     }
 
 
