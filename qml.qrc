@@ -13,5 +13,6 @@
         <file>Time.qml</file>
         <file>HomeButton.qml</file>
         <file>Background.qml</file>
+        <file>Images/thermometer.png</file>
     </qresource>
 </RCC>

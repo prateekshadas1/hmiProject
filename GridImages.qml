@@ -1,8 +1,12 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
+
 
 Item {
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
+    property int counter1: 1
+
     height: mainScreenHeight*0.7
     width: mainScreenWidth*0.8
     id: grid
@@ -12,11 +16,9 @@ Item {
     anchors.leftMargin: mainScreenWidth*172/1000
 
 
-
     ListModel {
         id: appModel
-        dynamicRoles: false
-        ListElement { name: "Phone"; icon: "Images/phone1.png"; }
+          ListElement { name: "Phone"; icon: "Images/phone1.png"; }
           ListElement { name: "Radio"; icon: "Images/radio1.png";}
           ListElement { name: "Media"; icon: "Images/media.png" }
           ListElement { name: "Navigation";icon: "Images/gps.png" }
@@ -28,24 +30,19 @@ Item {
     GridView {
         width: grid.width
         height: grid.height
+        cellWidth: grid.width*0.3
+        cellHeight: grid.height*0.5
+        model: appModel
+        clip:true
+         delegate: Item
+          {
+              width: grid.width*0.175
+              height: grid.height*0.35
 
 
-
-          cellWidth: grid.width*0.3; cellHeight: grid.height*0.5
-
-
-          model: appModel
-
-
-
-          delegate: Item {
-
-              width: grid.width*0.175; height: grid.height*0.35
-
-
-              Image {
+              Image
+              {
                   id: myIcon
-                  //y: 50
                   anchors.horizontalCenter: parent.horizontalCenter
                   source: icon
                   width: grid.width*0.125
@@ -54,23 +51,44 @@ Item {
               }
 
 
-              Text {
-                  id:textArea1
-                  anchors { top: myIcon.bottom;
-                      topMargin: parent.height*15/600
-                      horizontalCenter: parent.horizontalCenter
-                  }
-                  text: name
-                  color: "white"
-                  font.pointSize: grid.width*0.02
-                  font.bold:true
-                  font.family: "Arial"
+              Text
+              {
+                      id:textArea1
+                      anchors
+                      {   top: myIcon.bottom;
+                          topMargin: parent.height*15/600
+                          horizontalCenter: parent.horizontalCenter
+                       }
+                    text: name
+                    color: "white"
+                    font.pointSize: grid.width*0.02
+                    font.bold:true
+                    font.family: "Arial"
 
 
               }
               MouseArea{
                   anchors.fill:myIcon
-                  onClicked: {
+
+                  onPressed:
+                  {  myIcon.width=(grid.width*0.125)*3/4
+                      myIcon.height=(grid.height*0.25)*3/4
+
+
+                      if(name=="Others" && appModel.count<=6){
+
+                          appModel.append({name:"Temperature", icon: "Images/thermometer.png"})
+                          appModel.move(appModel.count-2,appModel.count-1,1)
+                      }
+
+                  }
+                  onReleased: {
+                      myIcon.width=grid.width*0.125
+                       myIcon.height=grid.height*0.25
+
+                  }
+
+
 
                   }
               }
@@ -81,4 +99,5 @@ Item {
 
 }
 
-}
+
+
