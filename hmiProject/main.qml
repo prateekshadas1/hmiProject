@@ -79,10 +79,10 @@ Item{
 
 
 
-    ListModel {
+        ListModel {
         id: appModel
         dynamicRoles: false
-        ListElement { name: "Phone"; icon: "Images/phone1.png"; }
+          ListElement { name: "Phone"; icon: "Images/phone icon.png"; }
           ListElement { name: "Radio"; icon: "Images/radio1.png";}
           ListElement { name: "Media"; icon: "Images/media.png" }
           ListElement { name: "Navigation";icon: "Images/gps.png" }
@@ -92,23 +92,17 @@ Item{
 
 
     GridView {
+        id:gridView
         width: grid.width
         height: grid.height
+        cellWidth: grid.width*0.3
+        cellHeight: grid.height*0.5
+        model: appModel
 
-
-
-
-          cellWidth: grid.width*0.3; cellHeight: grid.height*0.5
-
-
-          model: appModel
-
-
-
-          delegate: Item {
-
-              width: grid.width*0.175; height: grid.height*0.35
-
+        delegate:
+            Item {
+              width: grid.width*0.175
+              height: grid.height*0.35
 
               Image {
                   id: myIcon
@@ -119,10 +113,11 @@ Item{
                   fillMode: Image.PreserveAspectFit
               }
 
-
               Text {
                   id:textArea1
-                  anchors { top: myIcon.bottom;
+                  anchors
+                  {
+                      top: myIcon.bottom;
                       topMargin: 15
                       horizontalCenter: parent.horizontalCenter
                   }
@@ -131,13 +126,29 @@ Item{
                   font.pointSize: grid.width*0.02
                   font.bold:true
                   font.family: "Arial"
-
-
               }
+
               MouseArea{
                   anchors.fill:myIcon
-                  onClicked: {
+                  onPressed: {
 
+                      myIcon.width = myIcon.width * 0.75
+                      myIcon.height = myIcon.height * 0.74
+                      textArea1.font.pointSize = textArea1.font.pointSize * 0.6
+
+                      if(name == "Others")
+                      {
+
+                      appModel.append({name: "Radio", icon: "Images/radio1.png"})
+                      appModel.move(appModel.count-2, appModel.count-1, 1)
+                      }
+
+
+                  }
+
+                  onReleased: {
+                      myIcon.width = grid.width*0.125
+                      myIcon.height = grid.height*0.25
                   }
               }
 

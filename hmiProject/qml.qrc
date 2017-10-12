@@ -9,6 +9,6 @@
         <file>Images/setting icon.png</file>
         <file>GridImages.qml</file>
         <file>Images/radio1.png</file>
-        <file>PROJECT/Images/phone icon.png</file>
+        <file>Images/phone icon.png</file>
     </qresource>
 </RCC>
