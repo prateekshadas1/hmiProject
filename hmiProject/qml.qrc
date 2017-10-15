@@ -7,8 +7,16 @@
         <file>Images/media.png</file>
         <file>Images/plus.png</file>
         <file>Images/setting icon.png</file>
-        <file>GridImages.qml</file>
         <file>Images/radio1.png</file>
         <file>Images/phone icon.png</file>
+        <file>Images/connected screen.PNG</file>
+        <file>ScreenSrollCircle.qml</file>
+        <file>SettingsScreen.qml</file>
+        <file>RadioSettings.qml</file>
+        <file>GridImages.qml</file>
+        <file>PhoneSettings.qml</file>
+        <file>NavigationSettings.qml</file>
+        <file>MediaSettings.qml</file>
+        <file>MainScreen.qml</file>
     </qresource>
 </RCC>
