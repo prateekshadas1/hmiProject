@@ -2,16 +2,15 @@ import QtQuick 2.8
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
 
-Item {
+Window {
 
     visible: true
     width: 1000
     height: 600
     id: window
-    //title: qsTr("Main Menu")
+    title: qsTr("Main Menu")
 
     property bool glowLayer: false
 
@@ -97,7 +96,7 @@ Item {
            ListModel
             {
               id: appModel
-              objectName: appModel
+              objectName: "appModel"
 //              ListElement { name: "Phone"; icon: "Images/phone icon.png"; }
 //              ListElement { name: "Radio"; icon: "Images/radio1.png";}
 //              ListElement { name: "Media"; icon: "Images/media.png" }
@@ -108,6 +107,7 @@ Item {
 
         GridView {
             id:gridView
+            objectName: "gridView"
             width: grid.width
             height: grid.height
             cellWidth: grid.width * (0.3)
@@ -134,13 +134,6 @@ Item {
                           border.color: "white"
                           border.width: 9
                           visible: false
-                          layer.enabled: window.glowLayer
-                          layer.effect: Glow {
-                                               samples: 17
-                                               radius: 8
-                                               color: "blue"
-                                               transparentBorder: false
-                                             }
                       }
 
 
