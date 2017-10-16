@@ -1,17 +1,12 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QQuickView>
 #include <ListModel.h>
-#include <qqmlcontext.h>
-#include <qqml.h>
-#include <QtQuick/qquickitem.h>
-#include <QtQuick/qquickview.h>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QAbstractListModel>
-#include <QMetaType>
+#include <iostream>
 
-
+using namespace std;
 
 
 int main(int argc, char *argv[])
@@ -23,35 +18,58 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
-    ListModel* model = new ListModel();
-
-    mainScreenElements radioButton;
-    radioButton.name = "Radio";
-    radioButton.icon = "C:\\Users\\alekh\\Desktop\\phone icon.png";
-
-    model->addEntry(radioButton);
-
-    mainScreenElements mediaButton;
-    mediaButton.name = "Media";
-    mediaButton.icon = "radio.png";
-
-    model->addEntry(mediaButton);
+    ListModel model;
 
     mainScreenElements phoneButton;
     phoneButton.name = "Phone";
-    phoneButton.icon = "radio.png";
+    phoneButton.icon = "qrc:/Images/phone icon.png";
+    model.addEntry(phoneButton);
 
-    model->addEntry(phoneButton);
+    mainScreenElements radioButton;
+    radioButton.name = "Radio";
+    radioButton.icon = "qrc:/Images/radio1.png";
+    model.addEntry(radioButton);
+
+    mainScreenElements mediaButton;
+    mediaButton.name = "Media";
+    mediaButton.icon = "qrc:/Images/media.png";
+    model.addEntry(mediaButton);
+
+    mainScreenElements navigationButton;
+    navigationButton.name = "Navigation";
+    navigationButton.icon = "qrc:/Images/gps.png";
+    model.addEntry(navigationButton);
+
+    mainScreenElements settingsButton;
+    settingsButton.name = "Settings";
+    settingsButton.icon = "qrc:/Images/setting icon.png";
+    model.addEntry(settingsButton);
+
+    mainScreenElements futureButton;
+    futureButton.name = "Future";
+    futureButton.icon = "qrc:/Images/plus.png";
+    model.addEntry(futureButton);
+
+    mainScreenElements navigationButton1;
+    navigationButton1.name = "Navigation";
+    navigationButton1.icon = "qrc:/Images/gps.png";
+    model.addEntry(navigationButton1);
+
+    mainScreenElements settingsButton1;
+    settingsButton1.name = "Settings";
+    settingsButton1.icon = "qrc:/Images/setting icon.png";
+    model.addEntry(settingsButton1);
+
+    mainScreenElements futureButton1;
+    futureButton1.name = "Future";
+    futureButton1.icon = "qrc:/Images/plus.png";
+    model.addEntry(futureButton1);
 
     QObject *object = engine.rootObjects().at(0);
     QQuickWindow* mainWindow = qobject_cast <QQuickWindow*> (object);
 
-    QQuickItem* appModel = mainWindow->findChild<QQuickItem*>("appModel");
-    appModel->setProperty("model", QVariant::fromValue(&model));
+    QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
+    gridView->setProperty("model", QVariant::fromValue(&model));
 
-//    QQuickView view;
-//       QQmlContext *ctxt = view.rootContext();
-//       ctxt->setContextProperty("appModel", QVariant::fromValue(&model));
-
-       return app.exec();
+    return app.exec();
 }
