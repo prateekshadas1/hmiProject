@@ -8,14 +8,10 @@ Window {
     visible: true
     width: 1000
     height: 600
-    id: window
+    id: rootWindow
     title: qsTr("Main Menu")
 
     property bool glowLayer: false
-
-    Loader{
-        id:loader
-    }
 
     Image
     {
