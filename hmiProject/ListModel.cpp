@@ -22,17 +22,26 @@ QHash<int, QByteArray> ListModel::roleNames() const
 
 QVariant ListModel::data(const QModelIndex &index, int role) const
 {
-    mainScreenElements element = m_elementList.at(index);
+    if (index.row() < 0 || index.row() >= m_elementList.count())
+       {
+           return QVariant();
+       }
 
-    if(role == 1)
-    {
-        return element.name;
+      mainScreenElements element = m_elementList.at(index.row());
+
+       if(role == 1)
+       {
+           return element.name;
+
+       }
+       else if(role == 2)
+       {
+          return  element.icon;
+       }
+
+       return QVariant();
+
     }
-    else if (role == 2)
-    {
-        return element.icon;
-    }
-}
 
 
 void ListModel::addEntry(const mainScreenElements element)
