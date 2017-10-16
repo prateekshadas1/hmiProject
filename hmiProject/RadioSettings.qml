@@ -1,16 +1,13 @@
 import QtQuick 2.8
-import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Styles 1.4
 
-Window {
+Item {
     visible: true
     width: 1000
     height: 600
     id: window
-    title: qsTr("Radio Settings")
 
     Loader{
         id: loader
@@ -46,8 +43,7 @@ Window {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
-                    loader.setSource ("main.qml")
-                    window.visible = false
+                    rootWindow.changeScreen("main.qml")
                 }
             }
         }
@@ -123,6 +119,7 @@ Window {
                 onReleased: {
                     settingsIcon.height = window.height/6
                     settingsIcon.width = window.width*0.1
+                    rootWindow.changeScreen("SettingsScreen.qml")
                 }
             }
 
@@ -327,36 +324,31 @@ Window {
                     color: slider.pressed ? "#f0f0f0" : "#f6f6f6"
                     border.color: "#bdbebf"
                 }
-
-            Rectangle{
-                id:lowtext
-               anchors.top:window.top
-               anchors.left:slider.left
-               anchors.topMargin: window.height * 310/600
-               height: window.height * 20/1000
-               width: window.width * 20/600
-               color: "transparent"
+        }
 
                Text{
-                anchors.centerIn: lowtext
+                   id:lowText
+                anchors.left:slider.left
+                anchors.top:slider.bottom
+                anchors.topMargin: window.height * 5/1000
                 font.bold: true
                 text:"0"
                 color:"white"
                 font.pixelSize: window.width * 18/1000
                 }
 
-            }
 
-            }
-         Text{
-             anchors.left:slider.right
-             anchors.top:slider.bottom
-             anchors.topMargin: window.height * 5/1000
-             text: "100"
-             color: "white"
-             font.pixelSize: window.width * 18/1000
+               Text{
+                   id:highText
+                 anchors.left:slider.right
+                 anchors.top:slider.bottom
+                 anchors.topMargin: window.height * 5/1000
+                 text: "100"
+                 color: "white"
+                 font.pixelSize: window.width * 18/1000
 
-         }
+             }
+ //       }
 
 //---Radio Text---//
 
