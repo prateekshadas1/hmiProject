@@ -3,13 +3,25 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 
 
-Window
-{
-    id: rootWindow
+Window {
+
     visible: true
     width: 1000
     height: 600
-    title: qsTr("Hello World")
+    id: window
+    title: qsTr("Main Menu")
+
+    property bool glowLayer: false
+
+    Loader{
+        id:loader
+    }
+
+    Image
+    {
+        anchors.fill:parent
+        source:"Images/backgroud screen1.jpg"
+    }
 
     Loader
     {
@@ -31,5 +43,4 @@ Window
         console.log(value)
         loader.setSource(value)
     }
-
 }
