@@ -20,11 +20,9 @@
     public:
       ListModel();
 
-     // explicit ListModel(QObject *parent = 0);
-
          int rowCount(const QModelIndex & parent) const;
-       virtual   QHash<int, QByteArray> roleNames() const;
-        virtual  QVariant data(const QModelIndex &index, int role=Qt::DisplayRole) const;
+         QHash<int, QByteArray> roleNames() const;
+         QVariant data(const QModelIndex &index, int role) const;
          void addEntry(const mainScreenElements element);
 
     private:
