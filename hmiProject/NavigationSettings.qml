@@ -1,16 +1,13 @@
 import QtQuick 2.8
-import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
-Window {
+Item {
 
     visible: true
     width: 1000
     height: 600
     id: window
-    title: qsTr("Main Menu")
 
     Image
     {
@@ -42,6 +39,7 @@ Window {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
+                    rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }
@@ -117,8 +115,7 @@ Window {
                 onReleased: {
                     settingsIcon.height = window.height/6
                     settingsIcon.width = window.width*0.1
-                    loader.setSource ("SettingsScreen.qml")
-                    window.visible = false
+                    rootWindow.changeScreen("SettingsScreen.qml")
                 }
             }
 

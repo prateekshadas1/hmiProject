@@ -2,28 +2,18 @@ import QtQuick 2.8
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
 Item {
-
     visible: true
     width: 1000
     height: 600
     id: window
-    //title: qsTr("Settings")
 
     Image
     {
         anchors.fill:parent
         source:"Images/backgroud screen1.jpg"
     }
-
-
-    Loader
-        {
-            id: loader
-        }
-
 
     Item
     {
@@ -49,6 +39,7 @@ Item {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
+                    rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }
@@ -165,9 +156,7 @@ Item {
             onReleased: {
                 radioRect.height = radioRect.height / 0.75
                 radioRect.width = radioRect.width / 0.75
-                loader.setSource("RadioSettings.qml")
-                window.visible = false
-
+                rootWindow.changeScreen("RadioSettings.qml")
             }
 
             onEntered: {
@@ -216,6 +205,7 @@ Item {
             onReleased: {
                 mediaRect.height = mediaRect.height / 0.75
                 mediaRect.width = mediaRect.width / 0.75
+                rootWindow.changeScreen("MediaSettings.qml")
             }
 
             onEntered: {
@@ -263,6 +253,7 @@ Item {
             onReleased: {
                 phoneRect.height = phoneRect.height / 0.75
                 phoneRect.width = phoneRect.width / 0.75
+                rootWindow.changeScreen("PhoneSettings.qml")
             }
 
             onEntered: {
@@ -310,6 +301,7 @@ Item {
             onReleased: {
                 navigationRect.height = navigationRect.height / 0.75
                 navigationRect.width = navigationRect.width / 0.75
+                rootWindow.changeScreen("NavigationSettings.qml")
             }
 
             onEntered: {

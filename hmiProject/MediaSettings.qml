@@ -42,6 +42,7 @@ Window {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
+                    rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }
@@ -116,6 +117,7 @@ Window {
                 onReleased: {
                     settingsIcon.height = window.height/6
                     settingsIcon.width = window.width*0.1
+                    rootWindow.changeScreen("SettingsScreen.qml")
                 }
             }
 
