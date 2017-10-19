@@ -2,16 +2,13 @@ import QtQuick 2.8
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Window 2.3
 
-Item {
+Window {
     visible: true
     width: 1000
     height: 600
     id: window
-
-    Loader{
-        id: loader
-    }
 
     Image
     {
@@ -184,7 +181,7 @@ Item {
             anchors.left: onRect.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: onRect.verticalCenter
+            anchors.topMargin: window.height * 67.5/600
 
 
             indicator: Rectangle {
@@ -233,7 +230,7 @@ Item {
             anchors.left: offRect.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: offRect.verticalCenter
+            anchors.topMargin: window.height * 67.5/600
 
 
             indicator: Rectangle {
@@ -291,11 +288,10 @@ Item {
             from:0
             to:100
             anchors.top: horizontalLine.bottom
-            anchors.topMargin: window.height * 140/600
             anchors.left: tpRect.right
             anchors.leftMargin: window.width*  50/1000
-            anchors.verticalCenter: tpRect.verticalCenter
-            transformOrigin: Item.Center
+            anchors.topMargin: window.height * 162.5/600
+
 
             background: Rectangle {
                     x: slider.leftPadding
@@ -398,9 +394,7 @@ Item {
             anchors.left: onRect2.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: onRect2.verticalCenter
-
-
+            anchors.topMargin: window.height * 257.5/600
             indicator: Rectangle {
                       width: window.width * 32/1000
                       height: width
@@ -449,7 +443,7 @@ Item {
             anchors.left: offRect2.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: offRect2.verticalCenter
+            anchors.topMargin: window.height * 257.5/600
 
 
             indicator: Rectangle {
@@ -525,7 +519,7 @@ Item {
             anchors.left: onRect3.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: onRect3.verticalCenter
+            anchors.topMargin: window.height * 352.5/600
 
 
             indicator: Rectangle {
@@ -576,7 +570,7 @@ Item {
             anchors.left: offRect3.right
             anchors.leftMargin: window.width*  50/1000
             anchors.top: horizontalLine.bottom
-            anchors.verticalCenter: offRect3.verticalCenter
+            anchors.topMargin: window.height * 352.5/600
 
 
             indicator: Rectangle {

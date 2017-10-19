@@ -1,21 +1,16 @@
 import QtQuick 2.8
-import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 
 Item {
+   signal refreshScreen(var value)
 
+    objectName: "mainScreen"
     visible: true
     width: 1000
     height: 600
     id: window
-
-    property bool glowLayer: false
-
-    Loader{
-        id:loader
-    }
 
     Image
     {
@@ -25,7 +20,7 @@ Item {
 
     Item
     {
-        id:homeButton
+
 
         Image {
             id: home
@@ -37,6 +32,21 @@ Item {
             source: "Images/home icon.png"
             height:window.height/6
             width:window.width*0.1
+        }
+
+        MouseArea{
+            id: homeButton
+            objectName: "homeButton"
+            anchors.fill: home
+            onPressed: {
+                home.height = home.height * 0.75
+                home.width = home.weight * 0.75
+            }
+            onReleased: {
+                home.height = window.height/6
+                home.width = window.width*0.1
+                rootWindow.changeScreen("MainScreen.qml")
+            }
         }
     }
 
@@ -114,7 +124,7 @@ Item {
                   width: grid.width*0.175
                   height: grid.height*0.35
 
-                  Image {
+                                    Image {
                       Rectangle
                       {
                           id:backgroundRectangle
@@ -162,13 +172,11 @@ Item {
                       anchors.fill:myIcon
                       hoverEnabled: true
                       onEntered: {
-                          window.glowLayer = false
                           backgroundRectangle.visible = true
                       }
 
                       onExited: {
-                          window.glowLayer = false
-                          backgroundRectangle.visible = false
+                         backgroundRectangle.visible = false
                       }
 
                       onPressed: {
@@ -191,10 +199,21 @@ Item {
                           textArea1.font.pointSize = grid.width*0.017
                           backgroundRectangle.height = grid.height * 0.25
 
-                          if(name == "Settings")
+                          if(textArea1.text == "Settings")
                           {
                               rootWindow.changeScreen("SettingsScreen.qml")
                           }
+                          if(textArea1.text == "Radio")
+                          {
+                              rootWindow.changeScreen("RadioScreen.qml")
+                          }
+
+                          if(textArea1.text == "Phone")
+                          {
+                              rootWindow.changeScreen("PhoneScreen.qml")
+                          }
+
+
                           }
                       }
                   }
@@ -202,6 +221,12 @@ Item {
               }
 
         }
+
+    Component.onCompleted:
+    {
+        window.refreshScreen(1);
+        //console.log("refresh signal");
+    }
             }
 
 

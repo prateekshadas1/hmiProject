@@ -18,5 +18,14 @@
         <file>NavigationSettings.qml</file>
         <file>MediaSettings.qml</file>
         <file>MainScreen.qml</file>
+        <file>RadioScreen.qml</file>
+        <file>RadioBrowse.qml</file>
+        <file>Time.qml</file>
+        <file>Background.qml</file>
+        <file>Images/RadioTower.png</file>
+        <file>HomeButton.qml</file>
+        <file>PhoneScreen.qml</file>
+        <file>Keypad.qml</file>
+        <file>DialScreen.qml</file>
     </qresource>
 </RCC>

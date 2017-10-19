@@ -1,8 +1,10 @@
 #include "ListModel.h"
+#include <iostream>
 
-ListModel::ListModel()
-{
-    m_elementList.clear();
+using namespace std;
+
+ListModel::ListModel(){
+
 }
 
 
@@ -51,4 +53,5 @@ void ListModel::addEntry(const mainScreenElements element)
     m_elementList.append(element);
     endInsertRows();
 }
+
 

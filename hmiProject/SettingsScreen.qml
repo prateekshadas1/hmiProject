@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 Item {
+     objectName: "homeButton"
     visible: true
     width: 1000
     height: 600
@@ -19,8 +20,10 @@ Item {
     {
         id:homeButton
 
+
         Image {
             id: home
+            objectName: "homeButton"
             anchors.top:parent.top
             anchors.topMargin: 18
             anchors.left:parent.left
@@ -38,7 +41,7 @@ Item {
                 }
                 onReleased: {
                     home.height = window.height/6
-                    home.width = window.width*0.1
+                    home.width = window.width*0.1                    
                     rootWindow.changeScreen("MainScreen.qml")
                 }
             }

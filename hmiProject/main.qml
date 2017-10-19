@@ -19,12 +19,20 @@ Window {
         source:"Images/backgroud screen1.jpg"
     }
 
+    Item
+    {
+        id: refreshItem
+        objectName: "refresh"
+        signal refresh(var refresh)
+    }
+
     Loader
     {
         id: loader
         onLoaded:
         {
             console.log("Loader finished")
+            refreshItem.refresh(1)
         }
     }
 
@@ -36,7 +44,7 @@ Window {
 
     function changeScreen(value)
     {
-        console.log(value)
+        console.log("Showing Screen" + value)
         loader.setSource(value)
     }
 }

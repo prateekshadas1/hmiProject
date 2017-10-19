@@ -5,12 +5,16 @@
 #include <QQuickWindow>
 #include <QAbstractListModel>
 #include <iostream>
+#include <LoadScreen.h>
+
 
 using namespace std;
 
 
 int main(int argc, char *argv[])
 {
+
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
@@ -19,6 +23,7 @@ int main(int argc, char *argv[])
         return -1;
 
     ListModel model;
+    LoadScreen loadScreen;
 
     mainScreenElements phoneButton;
     phoneButton.name = "Phone";
@@ -56,5 +61,31 @@ int main(int argc, char *argv[])
     QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
     gridView->setProperty("model", QVariant::fromValue(&model));
 
-    return app.exec();
+    loadScreen.setMainWindow(&engine);
+
+
+    QQuickItem* homeButton = mainWindow->findChild<QQuickItem*>("refresh");
+
+    if (homeButton != nullptr)
+    {
+        QObject::connect(homeButton, SIGNAL(refresh(QVariant)), &loadScreen, SLOT(onReleased(QVariant)));
+
+    }
+
+
+    homeButton = mainWindow->findChild<QQuickItem*>("mainScreen");
+
+    if (homeButton != nullptr)
+    {
+        QObject::connect(homeButton, SIGNAL(refreshScreen(QVariant)), &loadScreen, SLOT(onReleased(QVariant)));
+
+    }
+
+    else
+    {
+        cout << "button not found "<<endl;
+    }
+    cout << "connected"<<endl;
+
+ return app.exec();
 }
