@@ -73,15 +73,7 @@ int main(int argc, char *argv[])
     }
 
 
-    homeButton = mainWindow->findChild<QQuickItem*>("mainScreen");
-
-    if (homeButton != nullptr)
-    {
-        QObject::connect(homeButton, SIGNAL(refreshScreen(QVariant)), &loadScreen, SLOT(onReleased(QVariant)));
-
-    }
-
-    else
+   else
     {
         cout << "button not found "<<endl;
     }

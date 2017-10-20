@@ -30,13 +30,16 @@ Item {
         width:window.width*0.1
         MouseArea{
             anchors.fill: homeButton
-            onClicked: {
+
+            onPressed: {
                 homeButton.height=homeButton.height*0.75
                 homeButton.width=homeButton.width*0.75
-                window.visible=false
-                loader.setSource("main.qml")
 
-
+            }
+            onReleased: {
+                homeButton.height = window.height/6
+                homeButton.width =  window.width*0.1
+                rootWindow.changeScreen("MainScreen.qml")
 
             }
     }
@@ -52,10 +55,8 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:window.width*120/1000
         fillMode: Image.PreserveAspectFit
-
-
-
     }
+
     Text{
         id:headingRadio
         text:"RADIO"

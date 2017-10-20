@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.1
 
 
 Item {
-   signal refreshScreen(var value)
 
     objectName: "mainScreen"
     visible: true
@@ -45,7 +44,7 @@ Item {
             onReleased: {
                 home.height = window.height/6
                 home.width = window.width*0.1
-                rootWindow.changeScreen("MainScreen.qml")
+                //rootWindow.changeScreen("MainScreen.qml")
             }
         }
     }
@@ -124,7 +123,7 @@ Item {
                   width: grid.width*0.175
                   height: grid.height*0.35
 
-                                    Image {
+                  Image {
                       Rectangle
                       {
                           id:backgroundRectangle
@@ -222,11 +221,6 @@ Item {
 
         }
 
-    Component.onCompleted:
-    {
-        window.refreshScreen(1);
-        //console.log("refresh signal");
-    }
             }
 
 

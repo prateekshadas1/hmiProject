@@ -11,8 +11,6 @@ Window {
     id: rootWindow
     title: qsTr("Main Menu")
 
-    property bool glowLayer: false
-
     Image
     {
         anchors.fill:parent
@@ -32,7 +30,7 @@ Window {
         onLoaded:
         {
             console.log("Loader finished")
-            refreshItem.refresh(1)
+
         }
     }
 
@@ -46,5 +44,12 @@ Window {
     {
         console.log("Showing Screen" + value)
         loader.setSource(value)
+
+        if(value === "MainScreen.qml")
+        {
+       refreshItem.refresh(1)
+        }
+
+
     }
 }

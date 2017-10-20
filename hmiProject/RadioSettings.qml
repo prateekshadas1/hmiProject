@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.3
 
-Window {
+Item {
     visible: true
     width: 1000
     height: 600
@@ -40,7 +40,7 @@ Window {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
-                    rootWindow.changeScreen("main.qml")
+                    rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }

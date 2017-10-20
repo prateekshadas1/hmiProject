@@ -12,6 +12,4 @@ Item {
         border.width: 1
         anchors.left: max
     }
-
-
 }

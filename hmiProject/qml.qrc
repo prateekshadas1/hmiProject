@@ -27,5 +27,6 @@
         <file>PhoneScreen.qml</file>
         <file>Keypad.qml</file>
         <file>DialScreen.qml</file>
+        <file>ScreenTemplate.qml</file>
     </qresource>
 </RCC>

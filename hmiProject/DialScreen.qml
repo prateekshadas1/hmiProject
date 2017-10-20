@@ -38,6 +38,7 @@ Item {
            anchors.left: parent.left
            anchors.leftMargin:parent.width*120/1000
            fillMode: Image.PreserveAspectFit
+
            MouseArea{
                anchors.fill: phoneIcon
                onPressed: {
