@@ -1,60 +1,52 @@
 import QtQuick 2.8
 import QtQuick.Window 2.2
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.1
+import QtQuick.Controls 1.4
 
 
-Window
-{
+Window {
+
     visible: true
     width: 1000
     height: 600
-    id: window
+    id: rootWindow
     title: qsTr("Main Menu")
 
-    Background
+
+    Image
     {
-        mainScreenHeight: window.height
-        mainScreenWidth: window.width
+        anchors.fill:parent
+        source:"Images/backgroud screen1.jpg"
+    }
+    Item{
+        id:refreshItem
+        objectName: "refresh"
+        signal refresh(var refresh)
     }
 
-
-    HomeButton
+    Loader
     {
-        mainScreenHeight: window.height
-        mainScreenWidth: window.width
+        id: loader
+        onLoaded:
+        {
+            console.log("Loader finished")
+        }
+//        property QtObject modelData: grid.model.get(index)
+
     }
 
-
-    Time
+    Component.onCompleted:
     {
-        anchors.right:parent.right
-        anchors.rightMargin: parent.width*20/1000
-        anchors.top: parent.top
-        anchors.topMargin: parent.height*16/600
-        mainScreenWidth: window.width
-        mainScreenHeight: window.height
+        console.log("Component onCompleted")
+        loader.setSource("MainScreen.qml")
     }
 
-    Rectangle
+    function changeScreen(value)
     {
-        id:borderLine
-        width:parent.width
-        height:1
-        color: "gray"
-        anchors.top: parent.top
-        anchors.topMargin: window.height*125/600
+        console.log("Showing Screen" + value)
+        loader.setSource(value)
+
+        if(value === "MainScreen.qml"){
+            refreshItem.refresh(1)
+        }
     }
-
-    GridImages
-    {   id:grid
-        mainScreenHeight: window.height
-        mainScreenWidth: window.width
-    }
-
-    Component.onCompleted: {
-        grid.refresh()
-    }
-
-
 }

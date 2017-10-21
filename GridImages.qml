@@ -77,10 +77,24 @@ Item {
                     font.bold:true
                     font.family: "Arial"
               }
+
+              Loader
+                 {
+                     id: radioLoader
+                     onLoaded:
+                     {
+                         console.log("Loader finished")
+                     }
+                 }
+
+
+
+
               MouseArea{
                   anchors.fill:myIcon
 
                   hoverEnabled: true
+
                   onEntered: {
                       backgroundIconRectangle.visible=true
 
@@ -104,6 +118,10 @@ Item {
                           appModel.append({name:"Temperature", icon: "Images/thermometer.png"})
                           appModel.move(appModel.count-2,appModel.count-1,1)
                       }
+                      if(name=="Radio"){
+                          radioLoader.source="RadioScreen.qml"
+                      }
+
 
                   }
                   onReleased:
@@ -120,11 +138,7 @@ Item {
               }
 
           }
-    function refresh()
-    {
-        console.log("Calling gridView refresh")
-        appModel.sync()
-    }
+
 
 
 

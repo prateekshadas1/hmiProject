@@ -16,6 +16,24 @@ Item {
         source: "Images/home icon.png"
         height:mainScreenHeight/6
         width:mainScreenWidth*0.1
+
+        MouseArea
+               {
+                   anchors.fill: home
+
+                   onPressed:
+                   {
+                       home.height=mainScreenHeight/6*(3/4)
+                       home.width=mainScreenWidth*0.1*(3/4)
+                   }
+
+                   onReleased:
+                   {
+                       home.height=mainScreenHeight/6
+                       home.width=mainScreenWidth*0.1
+                       rootWindow.changeScreen("MainScreen.qml")
+                   }
+               }
     }
 
 }

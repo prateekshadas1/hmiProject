@@ -7,7 +7,10 @@
 #include <iostream>
 #include <QTextStream>
 #include <QDebug>
-
+#include <ListModel.h>
+#include <QQuickItem>
+#include <QAbstractListModel>
+#include <LoadScreen.h>
 
 using namespace std;
 
@@ -50,5 +53,70 @@ int main(int argc, char *argv[])
     mainWindow->setProperty("height", mainWindowHeight);
     mainWindow->setProperty("width", mainWindowWidth);
 
-    return app.exec();
+
+    ListModel model;
+    LoadScreen loadScreen;
+
+
+       mainScreenElements phoneButton;
+       phoneButton.name = "Phone";
+       phoneButton.icon = "qrc:/Images/phone1.png";
+       model.addEntry(phoneButton);
+
+       mainScreenElements radioButton;
+       radioButton.name = "Radio";
+       radioButton.icon = "qrc:/Images/radio1.png";
+       model.addEntry(radioButton);
+
+       mainScreenElements mediaButton;
+       mediaButton.name = "Media";
+       mediaButton.icon = "qrc:/Images/media.png";
+       model.addEntry(mediaButton);
+
+       mainScreenElements navigationButton;
+       navigationButton.name = "Navigation";
+       navigationButton.icon = "qrc:/Images/gps.png";
+       model.addEntry(navigationButton);
+
+       mainScreenElements settingsButton;
+       settingsButton.name = "Settings";
+       settingsButton.icon = "qrc:/Images/setting icon.png";
+       model.addEntry(settingsButton);
+
+       mainScreenElements futureButton;
+       futureButton.name = "Future";
+       futureButton.icon = "qrc:/Images/plus.png";
+       model.addEntry(futureButton);
+
+
+
+
+
+       QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
+       gridView->setProperty("model", QVariant::fromValue(&model));
+       loadScreen.setMainWindow(&engine);
+
+
+           QQuickItem* homeButton = mainWindow->findChild<QQuickItem*>("refresh");
+
+           if (homeButton != nullptr)
+           {
+               QObject::connect(homeButton, SIGNAL(refresh(QVariant)), &loadScreen, SLOT(onReleased(QVariant)));
+
+           }
+
+
+          else
+           {
+               cout << "button not found "<<endl;
+           }
+           cout << "connected"<<endl;
+
+           QQuickItem* temperatureButton=mainWindow->findChild<QQuickItem*>("mainScreen");
+
+           if(temperatureButton !=nullptr){
+               QObject::connect(temperatureButton,SIGNAL(plus(QVariant)),&loadScreen,SLOT(onPlusPressed(QVariant)));
+
+           }
+       return app.exec();
 }
