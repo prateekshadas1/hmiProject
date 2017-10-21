@@ -109,24 +109,34 @@ release/qrc_qml.cpp: ../hmiProject/qml.qrc \
 		../hmiProject/PhoneScreen.qml \
 		../hmiProject/MediaSettings.qml \
 		../hmiProject/ScreenSrollCircle.qml \
+		../hmiProject/MediaScreen.qml \
 		../hmiProject/DialScreen.qml \
 		../hmiProject/SettingsScreen.qml \
 		../hmiProject/Keypad.qml \
 		../hmiProject/Background.qml \
+		../hmiProject/ScreenTemplate.qml \
 		../hmiProject/Time.qml \
 		../hmiProject/RadioBrowse.qml \
 		../hmiProject/NavigationSettings.qml \
+		../hmiProject/NavigationScreen.qml \
 		../hmiProject/RadioScreen.qml \
 		../hmiProject/HomeButton.qml \
 		../hmiProject/RadioSettings.qml \
+		../hmiProject/ContactsScreen.qml \
 		../hmiProject/main.qml \
 		../hmiProject/PhoneSettings.qml \
 		../hmiProject/GridImages.qml \
+		../hmiProject/Images/Music-icon.png \
+		../hmiProject/Images/RadioTower.png \
 		../hmiProject/Images/media.png \
 		../hmiProject/Images/gps.png \
+		../hmiProject/Images/123.png \
+		../hmiProject/Images/backward.png \
+		../hmiProject/Images/location1.png \
+		../hmiProject/Images/position.png \
 		../hmiProject/Images/plus.png \
-		../hmiProject/Images/RadioTower.png \
-		../hmiProject/Images/radio1.png
+		../hmiProject/Images/radio1.png \
+		../hmiProject/Images/triangle1.png
 	C:\Qt\5.9.1\mingw53_32\bin\rcc.exe -name qml ..\hmiProject\qml.qrc -o release\qrc_qml.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h

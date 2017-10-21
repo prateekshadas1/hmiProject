@@ -28,5 +28,17 @@
         <file>Keypad.qml</file>
         <file>DialScreen.qml</file>
         <file>ScreenTemplate.qml</file>
+        <file>MediaScreen.qml</file>
+        <file>Images/123.png</file>
+        <file>Images/backward.png</file>
+        <file>Images/forward .png</file>
+        <file>Images/Music-icon.png</file>
+        <file>Images/play 123.png</file>
+        <file>ContactsScreen.qml</file>
+        <file>NavigationScreen.qml</file>
+        <file>Images/location1.png</file>
+        <file>Images/position.png</file>
+        <file>Images/show map.jpg</file>
+        <file>Images/triangle1.png</file>
     </qresource>
 </RCC>

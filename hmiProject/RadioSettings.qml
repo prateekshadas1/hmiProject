@@ -6,8 +6,8 @@ import QtQuick.Window 2.3
 
 Item {
     visible: true
-    width: 1000
-    height: 600
+    width: rootWindow.screenWidth
+    height: rootWindow.screenHeight
     id: window
 
     Image

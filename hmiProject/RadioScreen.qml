@@ -1,5 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Window 2.3
+
+
 import QtQuick.Controls 2.2
 
 Item {
@@ -8,8 +10,10 @@ Item {
     visible: true
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
-    height: mainScreenHeight
-    width:mainScreenWidth
+    height: rootWindow.screenHeight
+    width: rootWindow.screenWidth
+
+
 
     Background
     {
@@ -20,7 +24,7 @@ Item {
     Image {
         id: homeButton
         anchors.top: window.top
-        anchors.topMargin: window.height*20/600
+        anchors.topMargin: window.height*18/600
         anchors.left: parent.left
         anchors.leftMargin: window.width*10/1000
         fillMode: Image.PreserveAspectFit
@@ -30,19 +34,16 @@ Item {
         width:window.width*0.1
         MouseArea{
             anchors.fill: homeButton
-
             onPressed: {
                 homeButton.height=homeButton.height*0.75
                 homeButton.width=homeButton.width*0.75
-
             }
             onReleased: {
                 homeButton.height = window.height/6
-                homeButton.width =  window.width*0.1
+                homeButton.width = window.width*0.1
                 rootWindow.changeScreen("MainScreen.qml")
-
             }
-    }
+        }
     }
 
     Image{
@@ -55,8 +56,8 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:window.width*120/1000
         fillMode: Image.PreserveAspectFit
-    }
 
+    }
     Text{
         id:headingRadio
         text:"RADIO"
@@ -160,6 +161,7 @@ Item {
         anchors.top:horizontalLine.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p1Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -173,6 +175,17 @@ Item {
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:p1Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p1Button.color="light blue"
+            }
+            onExited: {
+                p1Button.color="transparent"
+            }
+
+        }
 
 
     }
@@ -183,6 +196,7 @@ Item {
         anchors.top:p1.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p2Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -196,6 +210,17 @@ Item {
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:p2Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p2Button.color="light blue"
+            }
+            onExited: {
+                p2Button.color="transparent"
+            }
+
+        }
 
 
     }
@@ -206,6 +231,7 @@ Item {
         anchors.top:p2.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p3Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -219,6 +245,17 @@ Item {
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:p3Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p3Button.color="light blue"
+            }
+            onExited: {
+                p3Button.color="transparent"
+            }
+
+        }
 
 
     }
@@ -229,6 +266,7 @@ Item {
         anchors.top:p3.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p4Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -242,6 +280,17 @@ Item {
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:p4Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p4Button.color="light blue"
+            }
+            onExited: {
+                p4Button.color="transparent"
+            }
+
+        }
 
 
     }
@@ -252,6 +301,7 @@ Item {
         anchors.top:p4.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p5Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -265,6 +315,17 @@ Item {
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:p5Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p5Button.color="light blue"
+            }
+            onExited: {
+                p5Button.color="transparent"
+            }
+
+        }
 
 
     }
@@ -275,6 +336,7 @@ Item {
         anchors.top:p5.bottom
         background: Rectangle{
             anchors.fill: parent
+            id:p6Button
             color: "transparent"
             border.width: 1
             border.color: "gray"
@@ -287,6 +349,17 @@ Item {
             font.family: "Arial"
             font.pointSize: window.width*16/1000
             anchors.centerIn: parent
+        }
+        MouseArea{
+            anchors.fill:p6Button
+            hoverEnabled: true
+            onHoveredChanged: {
+                p6Button.color="light blue"
+            }
+            onExited: {
+                p6Button.color="transparent"
+            }
+
         }
 
 
@@ -302,11 +375,22 @@ Item {
         anchors.leftMargin: window.width*300/1000
         background: Rectangle{
             anchors.fill: parent
+            id:sourceButton1
             color: "transparent"
             border.width: 2
             border.color: "white"
         }
+        MouseArea{
+            anchors.fill:sourceButton1
+            hoverEnabled: true
+            onHoveredChanged: {
+                sourceButton1.color="light blue"
+            }
+            onExited: {
+                sourceButton1.color="transparent"
+            }
 
+        }
         Text{
             text:"SOURCE"
             color:"white"
@@ -319,18 +403,18 @@ Item {
     }
     Rectangle{
         id:browseButton
-        width: 130
-        height: 50
+        width: window.width*130/1000
+        height: window.height*50/600
         anchors.top:parent.top
         anchors.left:sourceButton.right
-            anchors.fill: parent
-            color: "transparent"
-            anchors.rightMargin: 256
-            anchors.bottomMargin: 100
-            anchors.leftMargin: 594
-            anchors.topMargin: 446
-            border.width: 2
-            border.color: "white"
+        anchors.fill: parent
+        color: "transparent"
+        anchors.rightMargin: window.width*256/1000
+        anchors.bottomMargin: window.height*100/600
+        anchors.leftMargin: window.width*594/1000
+        anchors.topMargin: window.height*446/600
+        border.width: window.width*2/1000
+        border.color: "white"
 
 
 
@@ -348,13 +432,33 @@ Item {
             height: 50
             anchors.fill:browseButton
             hoverEnabled: true
-            onClicked: {
+            onHoveredChanged: {
                 browseButton.color="light blue"
-                browseButton.height=browseButton.height*0.75
-                browseButton.width=browseButton.width*0.75
-                rootWindow.changeScreen("RadioBrowse.qml")
+
             }
+            onExited: {
+                browseButton.color="transparent"
+
+            }
+
+            onPressed:  {
+                browseButton.color="light blue"
+
+            }
+            onReleased: {
+                rootWindow.changeScreen("RadioBrowse.qml")
+
+
+            }
+
         }
 
+
     }
-    }
+
+
+
+}
+
+
+

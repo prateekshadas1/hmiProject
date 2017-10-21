@@ -7,24 +7,18 @@
 
 using namespace std;
 
-//LoadScreen::LoadScreen(QObject *parent) : QObject(parent)
-//{
-//}
 
-void LoadScreen::setModel(QQuickItem* model)
-{
-    m_model = model;
-}
 
-void LoadScreen::setMainWindow(QQmlApplicationEngine *window)
+void LoadScreen::setEngine(QQmlApplicationEngine *engine)
 {
-    engine = window;
+    m_engine = engine;
 }
 
 void LoadScreen::onReleased(QVariant value)
 {
      cout << "releasesd"<<endl;
      value;
+
      ListModel model2;
 
      mainScreenElements phoneButton;
@@ -58,10 +52,31 @@ void LoadScreen::onReleased(QVariant value)
      model2.addEntry(futureButton);
 
 
-     QObject *object = engine->rootObjects().at(0);
+     QObject *object = m_engine->rootObjects().at(0);
      QQuickWindow* mainWindow = qobject_cast <QQuickWindow*> (object);
 
      QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
      gridView->setProperty("model", QVariant::fromValue(&model2));
      gridView->update();
+}
+
+int LoadScreen::onEntered()
+{
+    ListModel test;
+
+    if (test.m_index == 0)
+    {
+         m_engine->load(QUrl(QStringLiteral("qrc:/PhoneScreen.qml")));
+
+    }
+
+    else
+    {
+        cout << " not loaded " << endl;
+    }
+
+
+    if (m_engine->rootObjects().isEmpty())
+        return -1;
+
 }

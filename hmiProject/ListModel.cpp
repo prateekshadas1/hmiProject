@@ -4,6 +4,7 @@
 using namespace std;
 
 ListModel::ListModel(){
+    m_index = 0;
 
 }
 
@@ -49,7 +50,10 @@ QVariant ListModel::data(const QModelIndex &index, int role) const
 void ListModel::addEntry(const mainScreenElements element)
 {
     int row = m_elementList.count();
+    m_index = m_elementList.count();
+
     beginInsertRows(QModelIndex(), row,row);
+    cout << "index is " << row << endl;
     m_elementList.append(element);
     endInsertRows();
 }

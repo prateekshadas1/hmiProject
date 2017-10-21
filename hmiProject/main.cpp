@@ -61,7 +61,8 @@ int main(int argc, char *argv[])
     QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
     gridView->setProperty("model", QVariant::fromValue(&model));
 
-    loadScreen.setMainWindow(&engine);
+
+    loadScreen.setEngine(&engine);
 
 
     QQuickItem* homeButton = mainWindow->findChild<QQuickItem*>("refresh");
@@ -72,10 +73,17 @@ int main(int argc, char *argv[])
 
     }
 
-
    else
     {
         cout << "button not found "<<endl;
+    }
+
+    QQuickItem* gridMouse = mainWindow->findChild<QQuickItem*>("gridMouse");
+
+    if (gridMouse!=nullptr)
+    {
+        QObject::connect(gridMouse, SIGNAL(entered()), &loadScreen, SLOT(onEntered()));
+
     }
     cout << "connected"<<endl;
 

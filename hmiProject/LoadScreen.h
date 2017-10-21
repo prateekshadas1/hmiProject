@@ -13,19 +13,20 @@ class LoadScreen : public QObject
 public:
     explicit LoadScreen(QObject *parent = nullptr)
     {
-        m_model=nullptr;
+        m_engine = nullptr;
     }
-    void setModel(QQuickItem* model);
-    void setMainWindow(QQmlApplicationEngine* window);
+
+    void setEngine(QQmlApplicationEngine* engine);
 
 
 public slots:
      void onReleased(QVariant value);
+     int onEntered();
 
 public:
-         QQuickItem* m_model;
-         QQuickWindow* m_window;
-         QQmlApplicationEngine* engine;
+
+         QQmlApplicationEngine* m_engine;
+
 
 };
 
