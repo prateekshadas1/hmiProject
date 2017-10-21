@@ -2,13 +2,13 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Images/backgroud screen1.jpg</file>
-        <file>Images/gps.png</file>
         <file>Images/home icon.png</file>
         <file>Images/media.png</file>
-        <file>Images/plus.png</file>
+        <file>Images/gps.png</file>
         <file>Images/setting icon.png</file>
-        <file>GridImages.qml</file>
-        <file>Images/radio1.png</file>
-        <file>Images/phone1.png</file>
+        <file>Images/plus.png</file>
+        <file>Images/radio icon4.png</file>
+        <file>MainButtons.qml</file>
+        <file>Images/phone icon.png</file>
     </qresource>
 </RCC>
