@@ -4,13 +4,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
-Window {
+Item {
 
     visible: true
-    width: 1000
-    height: 600
+    width: rootWindow.screenWidth
+    height: rootWindow.screenHeight
     id: window
-    title: qsTr("Main Menu")
+
 
     Image
     {
@@ -135,7 +135,7 @@ Window {
         anchors.topMargin: window.height * 45/600
     }
 
-//----Bass----//
+    //----Bass----//
 
     Rectangle{
         id: bassRect
@@ -223,7 +223,7 @@ Window {
 
     }
 
-//----Treble---//
+    //----Treble---//
 
     Rectangle{
         id: trebleRect
@@ -309,7 +309,7 @@ Window {
         font.pixelSize: window.width * 18/1000
     }
 
-//---Fade---//
+    //---Fade---//
 
     Rectangle{
         id: fadeRect
@@ -394,7 +394,7 @@ Window {
         font.pixelSize: window.width * 18/1000
     }
 
-//---Balance---//
+    //---Balance---//
 
     Rectangle{
         id: balanceRect

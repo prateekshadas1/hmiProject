@@ -26,9 +26,10 @@
          QVariant data(const QModelIndex &index, int role) const;
          void addEntry(const mainScreenElements element);
 
-
+ int m_index;
     private:
        QList<mainScreenElements> m_elementList;
+
         };
 
 #endif // LISTMODEL_H
