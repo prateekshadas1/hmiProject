@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.2
 
 
-Window
+Item
  {
      property int screenWidth
      property int screenHeight

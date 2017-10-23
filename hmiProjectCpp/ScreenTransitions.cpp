@@ -21,6 +21,7 @@ void ScreenTransitions::setWindow(QQuickWindow* Mainwindow)
 
 void ScreenTransitions::onReleased(int index)
 {
+    cout <<"inside released"<<endl;
     switch(index){
 
     case 0:
@@ -59,11 +60,25 @@ void ScreenTransitions::setScreen()
     QQuickItem* dial = NextScreenRootItem->findChild<QQuickItem*>("dial");
 //    QQuickItem* messages = NextScreenRootItem->findChild<QQuickItem*>("messages");
     QQuickItem* contacts = NextScreenRootItem->findChild<QQuickItem*>("contacts");
+    QQuickItem* homebutton = NextScreenRootItem->findChild<QQuickItem*>("PhoneScreenHomeButton");
 
     if (dial != nullptr)
     {
         cout << "dial refresh found"<<endl;
         QObject::connect(dial, SIGNAL(refresh(QVariant)), this, SLOT(onRefresh(QVariant)));
+
+
+    }
+
+   else
+    {
+        cout << "button not found "<<endl;
+    }
+
+    if (homebutton != nullptr)
+    {
+        cout << "dial refresh found"<<endl;
+        QObject::connect(homebutton, SIGNAL(refresh(QVariant)), &homeScreen, SLOT(onRefresh(QVariant)));
 
 
     }
@@ -96,9 +111,9 @@ void ScreenTransitions::onRefresh(QVariant value)
     if(value=="dial")
     {
     cout<<"refresh"<<endl;
-    QQmlComponent* MainScreenComponent = new QQmlComponent(m_engine,QUrl("qrc:/DialScreen.qml"));
-    QQuickItem* MainScreenRootItem = qobject_cast <QQuickItem*> (MainScreenComponent->create());
-    MainScreenRootItem->setParentItem(m_MainWindow->contentItem());
+    QQmlComponent* DialScreenComponent = new QQmlComponent(m_engine,QUrl("qrc:/DialScreen.qml"));
+    QQuickItem* DialScreenRootItem = qobject_cast <QQuickItem*> (DialScreenComponent->create());
+    DialScreenRootItem->setParentItem(m_MainWindow->contentItem());
     }
     else
     {
@@ -115,6 +130,10 @@ void ScreenTransitions::onRefresh(QVariant value)
     {
         cout<<"dial not found"<<endl;
     }
+
+
+
+
 }
 
 

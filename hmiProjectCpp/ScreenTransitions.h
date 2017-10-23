@@ -7,6 +7,7 @@
 #include <QQuickWindow>
 #include <QQmlComponent>
 #include <string>
+#include <ListModel.h>
 
 
 class ScreenTransitions: public QObject
@@ -23,6 +24,7 @@ public:
 
     }
     QQuickWindow* m_MainWindow;
+
 
     void setPhoneScreen(QQuickItem* phoneItem);
     void setEngine(QQmlApplicationEngine* engine);
@@ -43,6 +45,7 @@ private:
      QUrl presentScreen;
      QQmlComponent* MainScreenComponent;
      QQuickItem* MainScreenRootItem;
+     ListModel home;
 };
 
 #endif // SCREENTRANSITIONS_H

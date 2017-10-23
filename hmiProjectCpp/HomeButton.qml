@@ -7,7 +7,7 @@ Item {
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
 
-signal pressed
+signal released(var value)
 
 
     Image {
@@ -25,7 +25,7 @@ signal pressed
 
         MouseArea
         {
-            objectName: home.objectName
+            objectName: item.objectName
             anchors.fill: home
 
             onPressed:
@@ -38,7 +38,7 @@ signal pressed
             {
                 home.height=mainScreenHeight/6
                 home.width=mainScreenWidth*0.1
-                item.pressed()
+                item.released("home")
                 //rootWindow.changeScreen("MainScreen.qml")
             }
         }

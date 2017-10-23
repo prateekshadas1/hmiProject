@@ -9,8 +9,6 @@ Item {
     height: 600
     id: window
 
-
-
     Image
     {
         anchors.fill:parent
@@ -21,7 +19,7 @@ Item {
     {
         id:homeButton
         objectName: "mainScreenButton"
-        signal refres
+        signal refresh
 
 
 
@@ -50,7 +48,7 @@ Item {
                 onReleased: {
                     homeImage.height = window.height/6
                     homeImage.width = window.width*0.1
-                    homeButton.refres()
+                    homeButton.refresh()
                     console.log("refresh signal from qml")
 
                     //rootWindow.changeScreen("MainScreen.qml")
