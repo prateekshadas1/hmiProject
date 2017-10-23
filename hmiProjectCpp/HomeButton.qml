@@ -2,11 +2,17 @@ import QtQuick 2.0
 
 Item {
 
+    id: item
+   objectName: "PhoneScreenHomeButton"
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
 
+signal pressed
+
+
     Image {
         id: home
+
         anchors.top: parent.top
         anchors.topMargin: mainScreenHeight*18/600
         anchors.left: parent.left
@@ -19,6 +25,7 @@ Item {
 
         MouseArea
         {
+            objectName: home.objectName
             anchors.fill: home
 
             onPressed:
@@ -31,7 +38,8 @@ Item {
             {
                 home.height=mainScreenHeight/6
                 home.width=mainScreenWidth*0.1
-                rootWindow.changeScreen("MainScreen.qml")
+                item.pressed()
+                //rootWindow.changeScreen("MainScreen.qml")
             }
         }
     }

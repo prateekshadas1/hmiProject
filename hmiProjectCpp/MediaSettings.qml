@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-
     visible: true
     width: rootWindow.screenWidth
     height: rootWindow.screenHeight
@@ -42,7 +41,7 @@ Item {
                 onReleased: {
                     home.height = window.height/6
                     home.width = window.width*0.1
-                    rootWindow.changeScreen("MainScreen.qml")
+                    //rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }

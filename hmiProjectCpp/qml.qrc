@@ -42,5 +42,6 @@
         <file>Images/setting icon.png</file>
         <file>Images/show map.jpg</file>
         <file>Images/triangle1.png</file>
+        <file>Test.qml</file>
     </qresource>
 </RCC>

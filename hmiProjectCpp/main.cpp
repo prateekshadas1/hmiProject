@@ -83,18 +83,9 @@ int main(int argc, char  *argv[])
     screenTransitions.setEngine(&engine);
 
 
-    QQuickItem* homeButton = mainWindow->findChild<QQuickItem*>("refresh");
 
-    if (homeButton != nullptr)
-    {
-        QObject::connect(homeButton, SIGNAL(refresh(QVariant)), &loadScreen, SLOT(onReleased(QVariant)));
 
-    }
 
-   else
-    {
-        cout << "button not found "<<endl;
-    }
 
 
  return app.exec();

@@ -7,8 +7,8 @@ Item {
     id:dialqml
     property int dialScreenWidth: 1000
     property int dialScreenHeight: 600
-    height: rootWindow.height
-    width: rootWindow.width
+    height: parent.height
+    width: parent.width
 
 
 
@@ -30,6 +30,7 @@ Item {
 
     Image{
         id:phoneIcon
+
         source:"Images/phone icon.png"
         width: parent.width*0.1
         height: parent.height/8.5
@@ -48,7 +49,7 @@ Item {
             onReleased: {
                 phoneIcon.height = dialqml.height/6
                 phoneIcon.width = dialqml.width*0.1
-                rootWindow.changeScreen("PhoneScreen.qml")
+                //rootWindow.changeScreen("PhoneScreen.qml")
             }
         }
 

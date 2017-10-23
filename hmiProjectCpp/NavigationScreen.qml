@@ -7,8 +7,8 @@ import QtQuick.Layouts 1.1
 Item
 {
     visible: true
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: 1000
+    height: 600
     id: window
 
     Image

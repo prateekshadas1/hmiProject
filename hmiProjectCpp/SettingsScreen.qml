@@ -4,11 +4,12 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 Item {
-
     visible: true
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: 1000
+    height: 600
     id: window
+
+
 
     Image
     {
@@ -19,11 +20,13 @@ Item {
     Item
     {
         id:homeButton
+        objectName: "mainScreenButton"
+        signal refres
+
 
 
         Image {
-            id: home
-            objectName: "homeButton"
+            id: homeImage
             anchors.top:parent.top
             anchors.topMargin: 18
             anchors.left:parent.left
@@ -33,20 +36,29 @@ Item {
             height:window.height/6
             width:window.width*0.1
 
+
             MouseArea{
-                anchors.fill: home
+
+                id:homeButton1
+                objectName: homeButton.objectName
+                anchors.fill: homeImage
+                hoverEnabled: true
                 onPressed: {
-                    home.height = home.height * 0.75
-                    home.width = home.weight * 0.75
+                    homeImage.height = homeImage.height * 0.75
+                    homeImage.width = homeImage.weight * 0.75
                 }
                 onReleased: {
-                    home.height = window.height/6
-                    home.width = window.width*0.1
-                    rootWindow.changeScreen("MainScreen.qml")
+                    homeImage.height = window.height/6
+                    homeImage.width = window.width*0.1
+                    homeButton.refres()
+                    console.log("refresh signal from qml")
+
+                    //rootWindow.changeScreen("MainScreen.qml")
                 }
             }
         }
     }
+
 
     Item {
         anchors.right:parent.right
@@ -57,7 +69,7 @@ Item {
         height: window.height*0.13
         Text
         {
-            id:time
+           id:time
            anchors.centerIn: parent
            color:"white"
            font.bold:true
@@ -159,6 +171,7 @@ Item {
         MouseArea
         {
             id: radioButton
+            objectName: "radioButton"
             anchors.fill: radioRect
             hoverEnabled: true
             onPressed: {
@@ -169,7 +182,7 @@ Item {
             onReleased: {
                 radioRect.height = radioRect.height / 0.75
                 radioRect.width = radioRect.width / 0.75
-                rootWindow.changeScreen("RadioSettings.qml")
+               // rootWindow.changeScreen("RadioSettings.qml")
             }
 
             onEntered: {

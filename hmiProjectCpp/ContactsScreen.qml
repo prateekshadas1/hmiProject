@@ -5,8 +5,8 @@ import QtQuick.Controls 2.2
 Item {
     id:phoneScreen
     visible: true
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: parent.width
+    height: parent.height
 
     Background
        {

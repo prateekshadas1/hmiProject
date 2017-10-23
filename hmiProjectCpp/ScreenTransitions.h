@@ -6,6 +6,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
 #include <QQmlComponent>
+#include <string>
 
 
 class ScreenTransitions: public QObject
@@ -15,35 +16,33 @@ class ScreenTransitions: public QObject
 public:
    explicit ScreenTransitions(QObject *parent = nullptr)
     {
-        m_PhoneScreenRootItem = nullptr;
                 m_engine= nullptr;
                 m_MainWindow= nullptr;
-                m_component= nullptr;
                 m_screen = "qrc:/MainScreen.qml";
 
 
     }
+    QQuickWindow* m_MainWindow;
 
     void setPhoneScreen(QQuickItem* phoneItem);
     void setEngine(QQmlApplicationEngine* engine);
     void setWindow(QQuickWindow* Mainwindow);
-    void setComponent (QQmlComponent* component);
     void setScreen();
 
-    QUrl m_screen;
+
 
 public slots:
         void onReleased(int index);
+        void onRefresh(QVariant value);
 
 private:
-     QQuickItem* m_PhoneScreenRootItem;
      QQmlApplicationEngine* m_engine;
-     QQuickWindow* m_MainWindow;
-     QQmlComponent* m_component;
-     QQuickItem* m_radioScreenRootItem;
+
      QQmlComponent* qmlComponent;
-
-
+     QUrl m_screen;
+     QUrl presentScreen;
+     QQmlComponent* MainScreenComponent;
+     QQuickItem* MainScreenRootItem;
 };
 
 #endif // SCREENTRANSITIONS_H

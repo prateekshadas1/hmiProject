@@ -89,6 +89,8 @@ Item {
     Button
     {
         id: dial
+        objectName: "dial"
+        signal refresh(var value)
         anchors.left: verticalLine.left
         anchors.leftMargin: parent.width*80/1000
         anchors.bottom: parent.bottom
@@ -122,6 +124,7 @@ Item {
 
         onReleased: {
             dialrect.color = "transparent"
+            dial.refresh("dial")
             //rootWindow.changeScreen("DialScreen.qml")
         }
     }
@@ -169,6 +172,8 @@ Item {
     Button
     {
         id: contacts
+        objectName: "contacts"
+        signal refresh(var val)
         anchors.left: message.right
         anchors.leftMargin: parent.width*40/1000
         anchors.bottom: parent.bottom
@@ -201,6 +206,7 @@ Item {
 
         onReleased: {
             contactsrect.color = "transparent"
+            contacts.refresh("contacts")
             //rootWindow.changeScreen("ContactsScreen.qml")
         }
     }

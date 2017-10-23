@@ -24,6 +24,7 @@ Window
         }
 
     Image {
+
         id: home
         anchors.top:parent.top
         anchors.topMargin: 18
@@ -31,25 +32,23 @@ Window
         anchors.leftMargin: 10
         fillMode: Image.PreserveAspectFit
         source: "Images/home icon.png"
-        height:rootWindow
-.height/6
-        width:rootWindow
-.width*0.1
+        height:rootWindow.height/6
+        width:rootWindow.width*0.1
         }
 
     MouseArea{
         id: homeButton
-        objectName: "homeButton"
+
+
         anchors.fill: home
         onPressed: {
             home.height = home.height * 0.75
             home.width = home.width * 0.75
             }
         onReleased: {
-            home.height = rootWindow
-.height/6
-            home.width = rootWindow
-.width*0.1
+            home.height = rootWindow.height/6
+            home.width = rootWindow.width*0.1
+
             }
         }
 
@@ -58,18 +57,15 @@ Window
         anchors.rightMargin: 20
         anchors.top: parent.top
         anchors.topMargin: 16
-        width: rootWindow
-.width*0.08
-        height: rootWindow
-.height*0.13
+        width: rootWindow.width*0.08
+        height: rootWindow.height*0.13
 
         Text{
             id:time
             anchors.centerIn: parent
             color:"white"
             font.bold:true
-            font.pixelSize: rootWindow
-.width*28/1000
+            font.pixelSize: rootWindow.width*28/1000
             }
 
         Timer{
@@ -85,26 +81,22 @@ Window
 
     Rectangle{
         id:borderLine
+        objectName: "borderLine"
         width:parent.width
         height:1
         color: "gray"
         anchors.top: parent.top
-        anchors.topMargin: rootWindow
-.height*125/600
+        anchors.topMargin: rootWindow.height*125/600
         }
 
     Item{
-        height: rootWindow
-.height* (0.7)
-        width: rootWindow
-.width* (0.8)
+        height: rootWindow.height* (0.7)
+        width: rootWindow.width* (0.8)
         id: grid
         anchors.top: parent.top
-        anchors.topMargin: rootWindow
-.height*0.235
+        anchors.topMargin: rootWindow.height*0.235
         anchors.left: parent.left
-        anchors.leftMargin: rootWindow
-.width*172/1000
+        anchors.leftMargin: rootWindow.width*172/1000
 
         ListModel{
             id: appModel
@@ -192,30 +184,7 @@ Window
                         backgroundRectangle.height = grid.height * 0.25
                         console.log("index from qml" + index)
                         gridView.released(index)
-
-//                        if(textArea1.text == "Settings")
-//                        {
-//                            rootrootWindow.changeScreen("SettingsScreen.qml")
-//                        }
-//                        if(textArea1.text == "Radio")
-//                        {
-//                            rootrootWindow.changeScreen("RadioScreen.qml")
-//                        }
-
-////                        if(textArea1.text == "Phone")
-////                        {
-////                            rootrootWindow.changeScreen("PhoneScreen.qml")
-////                        }
-
-//                        if(textArea1.text == "Media")
-//                        {
-//                            rootrootWindow.changeScreen("MediaScreen.qml")
-//                        }
-
-//                        if(textArea1.text == "Navigation")
-//                        {
-//                            rootrootWindow.changeScreen("NavigationScreen.qml")
-//                        }
+                      }
 
 
                     }
@@ -226,7 +195,7 @@ Window
 
     }
 
-}
+
 
 
 

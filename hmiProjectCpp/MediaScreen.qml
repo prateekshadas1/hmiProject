@@ -3,30 +3,27 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
-
 Item
 {
     visible: true
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: 1000
+    height: 600
     id: window
+
     Image
     {
         id:background
         source:"Images/backgroud screen1.jpg"
-        anchors.fill: window
+        anchors.fill: parent
     }
 
     ScreenTemplate{
-
         mainScreenHeight: window.height
         mainScreenWidth: window.width
         verticalLineVisible:true
         imageSource:"Images/media.png"
-        //property string changeScreen: ""
         screenHeading:"Media"
         changeScreen: "MediaScreen.qml"
-
     }
 
 
@@ -46,7 +43,6 @@ Item
             onEntered:{usb.color="lightblue"}
             onExited:{usb.color="transparent"}
             onReleased:{usb.color="transparent"}
-
         }
 
 
