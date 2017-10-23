@@ -12,12 +12,8 @@ ListModel::ListModel(){
 void ListModel::setEngine(QQmlApplicationEngine* engine)
 {
     m_engine = engine;
-
-}
-
-void ListModel::setWindow(QQuickWindow* window)
-{
-    m_window = window;
+    QObject *object = engine->rootObjects().at(0);
+    m_window = qobject_cast <QQuickWindow*> (object);
 }
 
 
@@ -121,8 +117,6 @@ void ListModel::gridElements()
     {
          cout << "grid mouse not found "<<endl;
     }
-
-    screenTransitions2.setWindow(m_window);
     screenTransitions2.setEngine(m_engine);
 
 

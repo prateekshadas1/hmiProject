@@ -23,17 +23,12 @@ int main(int argc, char  *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
+
     ListModel model;
-    ScreenTransitions screenTransitions;
-
-    QObject *object = engine.rootObjects().at(0);
-    QQuickWindow* mainWindow = qobject_cast <QQuickWindow*> (object);
-
     model.setEngine(&engine);
-    model.setWindow(mainWindow);
     model.gridElements();
 
-    screenTransitions.setWindow(mainWindow);
+    ScreenTransitions screenTransitions;
     screenTransitions.setEngine(&engine);
 
  return app.exec();

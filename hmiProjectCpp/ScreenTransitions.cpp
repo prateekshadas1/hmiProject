@@ -12,11 +12,8 @@ using namespace std;
 void ScreenTransitions::setEngine(QQmlApplicationEngine* engine)
 {
     m_engine = engine;
-}
-
-void ScreenTransitions::setWindow(QQuickWindow* Mainwindow)
-{
-    m_MainWindow = Mainwindow;
+    QObject *object = engine->rootObjects().at(0);
+    m_MainWindow = qobject_cast <QQuickWindow*> (object);
 }
 
 void ScreenTransitions::onReleased(int index)
@@ -78,7 +75,7 @@ void ScreenTransitions::setScreen()
     if (homebutton != nullptr)
     {
         cout << "dial refresh found"<<endl;
-        QObject::connect(homebutton, SIGNAL(refresh(QVariant)), &homeScreen, SLOT(onRefresh(QVariant)));
+        QObject::connect(homebutton, SIGNAL(refresh(QVariant)), home, SLOT(onRefresh(QVariant)));
 
 
     }
