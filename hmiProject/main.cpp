@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/MainScreen.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 
@@ -58,6 +58,11 @@ int main(int argc, char *argv[])
     QObject *object = engine.rootObjects().at(0);
     QQuickWindow* mainWindow = qobject_cast <QQuickWindow*> (object);
 
+//    QQmlComponent* qmlComponent = new QQmlComponent(&engine, QUrl("qrc:/main.qml"));
+//    QQuickItem* PhoneScreenRootItem = qobject_cast <QQuickItem*>qmlComponent->create();
+//    PhoneScreenRootItem->setParentItem(mainWindow->contentItem());
+
+
     QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
     gridView->setProperty("model", QVariant::fromValue(&model));
 
@@ -84,6 +89,11 @@ int main(int argc, char *argv[])
     {
         QObject::connect(gridMouse, SIGNAL(entered()), &loadScreen, SLOT(onEntered()));
 
+    }
+
+    else
+    {
+        cout << "grid mouse not found" << endl;
     }
     cout << "connected"<<endl;
 

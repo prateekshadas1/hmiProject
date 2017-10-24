@@ -1,14 +1,15 @@
 import QtQuick 2.8
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
+import QtQuick.Window 2.3
 
 
-Item {
+Window {
 
     objectName: "mainScreen"
     visible: true
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: 1000 //rootWindow.screenWidth
+    height: 600
     id: window
     property  int currentIndex: 0
 
