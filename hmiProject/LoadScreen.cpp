@@ -67,6 +67,13 @@ void LoadScreen::onReleased(QVariant value)
      QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
      gridView->setProperty("model", QVariant::fromValue(&model2));
      gridView->update();
+     QQuickItem* temperatureButtons = mainWindow->findChild<QQuickItem*>("mainScreen");
+
+     if(temperatureButtons !=nullptr)
+     {
+         QObject::connect(temperatureButtons,SIGNAL(plus(QVariant)),this,SLOT(onPlusPressed(QVariant)));
+
+     }
 }
 void LoadScreen::onPlusPressed(QVariant value)
 {    addclimatecontrol=true;

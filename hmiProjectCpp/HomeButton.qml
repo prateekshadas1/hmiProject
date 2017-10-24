@@ -31,7 +31,7 @@ Item {
                    {
                        home.height=mainScreenHeight/6
                        home.width=mainScreenWidth*0.1
-                       rootWindow.changeScreen("MainScreen.qml")
+//                       rootWindow.changeScreen("MainScreen.qml")
                    }
                }
     }

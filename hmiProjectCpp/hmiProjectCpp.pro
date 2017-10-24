@@ -16,7 +16,9 @@ SOURCES += main.cpp \
     ListModel.cpp \
     LoadScreen.cpp \
     MainMenu.cpp \
-    ScreenTransitions.cpp
+    ScreenTransitions.cpp \
+    MainScreen.cpp \
+    PhoneScreen.cpp
 
 RESOURCES += qml.qrc
 
@@ -35,4 +37,6 @@ HEADERS += \
     ListModel.h \
     LoadScreen.h \
     MainMenu.h \
-    ScreenTransitions.h
+    ScreenTransitions.h \
+    MainScreen.h \
+    PhoneScreen.h

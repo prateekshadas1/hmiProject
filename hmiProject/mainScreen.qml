@@ -200,9 +200,9 @@ Item {
                           backgroundRectangle.height = grid.height * 0.25
                           if(index===5)
                           {console.log("printing on clicked others")
-                           //window.plus(1)
-                          appModel.append({name: "Temperature", icon: "Images/thermometer.png"})
-                          appModel.move(appModel.count-2, appModel.count-1, 1)
+                           window.plus(1)
+//                          appModel.append({name: "Temperature", icon: "Images/thermometer.png"})
+//                          appModel.move(appModel.count-2, appModel.count-1, 1)
                           }
 
                           if(textArea1.text == "Settings")

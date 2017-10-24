@@ -21,7 +21,7 @@ public:
 
 public slots:
      void onReleased(QVariant value);
-     int onEntered();
+
 
 public:
          QQmlApplicationEngine* m_engine;
