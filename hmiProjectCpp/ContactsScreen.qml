@@ -5,8 +5,13 @@ import QtQuick.Controls 2.2
 Item {
     id:phoneScreen
     visible: true
+<<<<<<< HEAD
     width: rootWindow.screenWidth
     height: rootWindow.screenHeight
+=======
+    width: parent.width
+    height: parent.height
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     Background
        {
@@ -24,6 +29,7 @@ Item {
 
        Image{
            id:phoneIcon
+<<<<<<< HEAD
            source:"Images/phone icon.png"
            width: parent.width*0.1
            height: parent.height/8.5
@@ -31,11 +37,21 @@ Item {
            anchors.topMargin: parent.height*25/600
            anchors.left: parent.left
            anchors.leftMargin:parent.width*120/1000
+=======
+           source:"Images/phone1.png"
+           width: phoneScreen.width*0.1
+           height: phoneScreen.height/8.5
+           anchors.top: phoneScreen.top
+           anchors.topMargin: phoneScreen.height*25/600
+           anchors.left: phoneScreen.left
+           anchors.leftMargin:phoneScreen.width*120/1000
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
            fillMode: Image.PreserveAspectFit
 
            MouseArea{
                anchors.fill: phoneIcon
                onPressed: {
+<<<<<<< HEAD
                    phoneIcon.height = phoneIcon.height * 0.75
                    phoneIcon.width = phoneIcon.weight * 0.75
                }
@@ -43,6 +59,15 @@ Item {
                    phoneIcon.height = parent.height/8.5
                    phoneIcon.width = parent.width*0.1
                    rootWindow.changeScreen("PhoneScreen.qml")
+=======
+//                   phoneIcon.height = phoneIcon.height * 0.75
+//                   phoneIcon.width = phoneIcon.weight * 0.75
+               }
+               onReleased: {
+//                   phoneIcon.height = phoneIcon.height/6
+//                   phoneIcon.width = phoneIcon.width*0.1
+//                   rootWindow.changeScreen("PhoneScreen.qml")
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
                }
            }
 

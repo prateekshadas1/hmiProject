@@ -4,21 +4,14 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
-Item {
+Window {
 
     visible: true
-<<<<<<< HEAD
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
+    width: 1000
+    height: 600
     id: window
+    title: qsTr("Main Menu")
 
-
-=======
-    width:parent.width
-    height: parent.height
-    id: window
-
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
     Image
     {
         anchors.fill:parent
@@ -44,11 +37,7 @@ Item {
                 anchors.fill: home
                 onPressed: {
                     home.height = home.height * 0.75
-<<<<<<< HEAD
-                    home.width = home.weight * 0.75
-=======
                     home.width = home.width * 0.75
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
                 }
                 onReleased: {
                     home.height = window.height/6
@@ -146,11 +135,7 @@ Item {
         anchors.topMargin: window.height * 45/600
     }
 
-<<<<<<< HEAD
-    //----Bass----//
-=======
 //----Bass----//
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     Rectangle{
         id: bassRect
@@ -238,11 +223,7 @@ Item {
 
     }
 
-<<<<<<< HEAD
-    //----Treble---//
-=======
 //----Treble---//
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     Rectangle{
         id: trebleRect
@@ -328,11 +309,7 @@ Item {
         font.pixelSize: window.width * 18/1000
     }
 
-<<<<<<< HEAD
-    //---Fade---//
-=======
 //---Fade---//
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     Rectangle{
         id: fadeRect
@@ -417,11 +394,7 @@ Item {
         font.pixelSize: window.width * 18/1000
     }
 
-<<<<<<< HEAD
-    //---Balance---//
-=======
 //---Balance---//
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     Rectangle{
         id: balanceRect
@@ -505,7 +478,3 @@ Item {
         font.pixelSize: window.width * 18/1000
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab

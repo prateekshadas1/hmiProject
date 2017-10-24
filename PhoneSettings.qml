@@ -7,13 +7,8 @@ import QtGraphicalEffects 1.0
 Item {
 
     visible: true
-<<<<<<< HEAD
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
-=======
-    width: parent.width
-        height: parent.height
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
+    width: 1000
+    height: 600
     id: window
     Image
     {
@@ -40,11 +35,7 @@ Item {
                 anchors.fill: home
                 onPressed: {
                     home.height = home.height * 0.75
-<<<<<<< HEAD
-                    home.width = home.weight * 0.75
-=======
                     home.width = home.width * 0.75
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
                 }
                 onReleased: {
                     home.height = window.height/6
@@ -344,7 +335,3 @@ Item {
     }
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab

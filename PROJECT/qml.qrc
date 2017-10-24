@@ -6,9 +6,33 @@
         <file>Images/media.png</file>
         <file>Images/gps.png</file>
         <file>Images/setting icon.png</file>
+<<<<<<< HEAD:PROJECT/qml.qrc
         <file>Images/plus.png</file>
         <file>Images/radio icon4.png</file>
         <file>MainButtons.qml</file>
         <file>Images/phone icon.png</file>
+=======
+        <file>GridImages.qml</file>
+        <file>Images/radio1.png</file>
+        <file>Images/phone1.png</file>
+        <file>Time.qml</file>
+        <file>HomeButton.qml</file>
+        <file>Background.qml</file>
+        <file>Images/thermometer.png</file>
+        <file>RadioScreen.qml</file>
+        <file>Images/RadioTower.png</file>
+        <file>RadioBrowseScreen.qml</file>
+        <file>MainScreen.qml</file>
+        <file>SettingsScreen.qml</file>
+        <file>MediaSettings.qml</file>
+        <file>RadioSettings.qml</file>
+        <file>PhoneSettings.qml</file>
+        <file>NavigationSettings.qml</file>
+        <file>PhoneScreen.qml</file>
+        <file>ScreenTemplate.qml</file>
+        <file>DialScreen.qml</file>
+        <file>Keypad.qml</file>
+        <file>ScreenScrolCircle.qml</file>
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab:qml.qrc
     </qresource>
 </RCC>

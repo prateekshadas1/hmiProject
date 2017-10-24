@@ -7,23 +7,37 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 void LoadScreen::setEngine(QQmlApplicationEngine *engine)
 {
     m_engine = engine;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 void LoadScreen::onReleased(QVariant value)
 {
      cout << "releasesd"<<endl;
      value;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
      ListModel model2;
 
      mainScreenElements phoneButton;
      phoneButton.name = "Phone";
+<<<<<<< HEAD
      phoneButton.icon = "qrc:/Images/phone icon.png";
+=======
+     phoneButton.icon = "qrc:/Images/phone1.png";
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
      model2.addEntry(phoneButton);
 
      mainScreenElements radioButton;
@@ -46,6 +60,16 @@ void LoadScreen::onReleased(QVariant value)
      settingsButton.icon = "qrc:/Images/setting icon.png";
      model2.addEntry(settingsButton);
 
+<<<<<<< HEAD
+=======
+//     mainScreenElements temperatureButton;
+//     temperatureButton.name = "Temperature";
+//     temperatureButton.icon = "qrc:/Images/thermometer.png";
+//     if(addclimatecontrol==true)
+//     model2.addEntry(temperatureButton);
+
+
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
      mainScreenElements futureButton;
      futureButton.name = "Future";
      futureButton.icon = "qrc:/Images/plus.png";
@@ -58,8 +82,22 @@ void LoadScreen::onReleased(QVariant value)
      QQuickItem* gridView = mainWindow->findChild<QQuickItem*>("gridView");
      gridView->setProperty("model", QVariant::fromValue(&model2));
      gridView->update();
+<<<<<<< HEAD
 }
 
+=======
+
+//     QQuickItem* temperatureButtons = mainWindow->findChild<QQuickItem*>("mainScreen");
+
+//     if(temperatureButtons !=nullptr)
+//     {
+//         QObject::connect(temperatureButtons,SIGNAL(plus(QVariant)),this,SLOT(onPlusPressed(QVariant)));
+
+//     }
+
+
+}
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 int LoadScreen::onEntered()
 {
     ListModel test;
@@ -80,3 +118,7 @@ int LoadScreen::onEntered()
         return -1;
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab

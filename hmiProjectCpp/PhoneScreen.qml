@@ -23,7 +23,11 @@ Item {
 
     Image{
         id:phoneIcon
+<<<<<<< HEAD
         source:"Images/phone icon.png"
+=======
+        source:"Images/phone1.png"
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
         width: parent.width*0.1
         height: parent.height/8.5
         anchors.top: parent.top
@@ -89,6 +93,11 @@ Item {
     Button
     {
         id: dial
+<<<<<<< HEAD
+=======
+        objectName: "dial"
+        signal refresh(var value)
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
         anchors.left: verticalLine.left
         anchors.leftMargin: parent.width*80/1000
         anchors.bottom: parent.bottom
@@ -122,6 +131,10 @@ Item {
 
         onReleased: {
             dialrect.color = "transparent"
+<<<<<<< HEAD
+=======
+            dial.refresh("dial")
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
             //rootWindow.changeScreen("DialScreen.qml")
         }
     }
@@ -169,6 +182,11 @@ Item {
     Button
     {
         id: contacts
+<<<<<<< HEAD
+=======
+        objectName: "contacts"
+        signal refresh(var val)
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
         anchors.left: message.right
         anchors.leftMargin: parent.width*40/1000
         anchors.bottom: parent.bottom
@@ -201,6 +219,10 @@ Item {
 
         onReleased: {
             contactsrect.color = "transparent"
+<<<<<<< HEAD
+=======
+            contacts.refresh("contacts")
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
             //rootWindow.changeScreen("ContactsScreen.qml")
         }
     }

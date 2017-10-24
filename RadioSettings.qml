@@ -6,13 +6,8 @@ import QtQuick.Window 2.3
 
 Item {
     visible: true
-<<<<<<< HEAD
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
-=======
-    width: parent.width
-    height: parent.height
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
+    width: 1000
+    height: 600
     id: window
 
     Image
@@ -601,7 +596,3 @@ Item {
 
         }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab

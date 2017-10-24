@@ -18,24 +18,6 @@ Item {
         width:mainScreenWidth*0.1
 
         MouseArea
-<<<<<<< HEAD
-        {
-            anchors.fill: home
-
-            onPressed:
-            {
-                home.height=mainScreenHeight/6*(3/4)
-                home.width=mainScreenWidth*0.1*(3/4)
-            }
-
-            onReleased:
-            {
-                home.height=mainScreenHeight/6
-                home.width=mainScreenWidth*0.1
-                rootWindow.changeScreen("MainScreen.qml")
-            }
-        }
-=======
                {
                    anchors.fill: home
 
@@ -52,7 +34,6 @@ Item {
                        rootWindow.changeScreen("MainScreen.qml")
                    }
                }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
     }
 
 }

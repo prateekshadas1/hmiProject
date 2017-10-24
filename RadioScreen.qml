@@ -1,10 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Window 2.3
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 import QtQuick.Controls 2.2
 
 Item {
@@ -13,13 +10,8 @@ Item {
     visible: true
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
-<<<<<<< HEAD
-    width: 1000
-    height: 600
-=======
     height: mainScreenHeight
     width:mainScreenWidth
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
 
@@ -51,11 +43,7 @@ Item {
                 homeButton.width = window.width*0.1
                 rootWindow.changeScreen("MainScreen.qml")
             }
-<<<<<<< HEAD
-        }
-=======
     }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
     }
 
     Image{
@@ -189,17 +177,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p1Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p1Button.color="light blue"
-            }
-            onExited: {
-                p1Button.color="transparent"
-            }
-
-        }
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p1Button.color="light blue"
@@ -209,7 +186,6 @@ Item {
         }
 
 }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
     }
@@ -236,17 +212,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p2Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p2Button.color="light blue"
-            }
-            onExited: {
-                p2Button.color="transparent"
-            }
-
-        }
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p2Button.color="light blue"
@@ -256,7 +221,6 @@ Item {
         }
 
 }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
     }
@@ -283,17 +247,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p3Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p3Button.color="light blue"
-            }
-            onExited: {
-                p3Button.color="transparent"
-            }
-
-        }
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p3Button.color="light blue"
@@ -303,7 +256,6 @@ Item {
         }
 
 }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
     }
@@ -330,17 +282,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p4Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p4Button.color="light blue"
-            }
-            onExited: {
-                p4Button.color="transparent"
-            }
-
-        }
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p4Button.color="light blue"
@@ -350,7 +291,6 @@ Item {
         }
 
 }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
     }
@@ -377,18 +317,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p5Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p5Button.color="light blue"
-            }
-            onExited: {
-                p5Button.color="transparent"
-            }
-
-        }
-
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p5Button.color="light blue"
@@ -399,7 +327,6 @@ Item {
 
 }
 
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     }
     Button{
@@ -425,18 +352,6 @@ Item {
         }
         MouseArea{
             anchors.fill:p6Button
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                p6Button.color="light blue"
-            }
-            onExited: {
-                p6Button.color="transparent"
-            }
-
-        }
-
-=======
         hoverEnabled: true
         onHoveredChanged: {
             p6Button.color="light blue"
@@ -447,7 +362,6 @@ Item {
 
 }
 
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
     }
 
@@ -468,17 +382,6 @@ Item {
         }
         MouseArea{
             anchors.fill:sourceButton1
-<<<<<<< HEAD
-            hoverEnabled: true
-            onHoveredChanged: {
-                sourceButton1.color="light blue"
-            }
-            onExited: {
-                sourceButton1.color="transparent"
-            }
-
-        }
-=======
         hoverEnabled: true
         onHoveredChanged: {
             sourceButton1.color="light blue"
@@ -488,7 +391,6 @@ Item {
         }
 
 }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
         Text{
             text:"SOURCE"
             color:"white"
@@ -501,26 +403,10 @@ Item {
     }
     Rectangle{
         id:browseButton
-<<<<<<< HEAD
-=======
-        objectName: "browseButton"
-        signal refresh(var value)
-
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
         width: window.width*130/1000
         height: window.height*50/600
         anchors.top:parent.top
         anchors.left:sourceButton.right
-<<<<<<< HEAD
-        anchors.fill: parent
-        color: "transparent"
-        anchors.rightMargin: window.width*256/1000
-        anchors.bottomMargin: window.height*100/600
-        anchors.leftMargin: window.width*594/1000
-        anchors.topMargin: window.height*446/600
-        border.width: window.width*2/1000
-        border.color: "white"
-=======
             anchors.fill: parent
             color: "transparent"
             anchors.rightMargin: window.width*256/1000
@@ -529,7 +415,6 @@ Item {
             anchors.topMargin: window.height*446/600
             border.width: window.width*2/1000
             border.color: "white"
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
 
@@ -543,10 +428,6 @@ Item {
         }
         MouseArea{
             id:browseMouseArea
-<<<<<<< HEAD
-=======
-            objectName: browseButton.objectName
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
             width: 130
             height: 50
             anchors.fill:browseButton
@@ -565,13 +446,7 @@ Item {
 
             }
             onReleased: {
-<<<<<<< HEAD
-                //rootWindow.changeScreen("RadioBrowse.qml")
-=======
-                browseButton.refresh("browseButton")
-
-//                rootWindow.changeScreen("RadioBrowseScreen.qml")
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
+                rootWindow.changeScreen("RadioBrowseScreen.qml")
 
 
             }
@@ -583,11 +458,7 @@ Item {
 
 
 
-<<<<<<< HEAD
-}
-=======
     }
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 
 
 

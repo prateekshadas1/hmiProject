@@ -15,6 +15,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     ListModel.cpp \
     LoadScreen.cpp \
+<<<<<<< HEAD
+=======
+    MainMenu.cpp \
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
     ScreenTransitions.cpp
 
 RESOURCES += qml.qrc
@@ -33,4 +37,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ListModel.h \
     LoadScreen.h \
+<<<<<<< HEAD
+=======
+    MainMenu.h \
+>>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
     ScreenTransitions.h

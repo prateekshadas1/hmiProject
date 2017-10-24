@@ -1,20 +1,14 @@
 import QtQuick 2.8
-import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
 Item {
 
     visible: true
-<<<<<<< HEAD
-    width: rootWindow.screenWidth
-    height: rootWindow.screenHeight
-=======
-    width: parent.width
-        height: parent.height
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
+    width: 1000
+    height: 600
     id: window
+
     Image
     {
         anchors.fill:parent
@@ -40,11 +34,7 @@ Item {
                 anchors.fill: home
                 onPressed: {
                     home.height = home.height * 0.75
-<<<<<<< HEAD
                     home.width = home.weight * 0.75
-=======
-                    home.width = home.width * 0.75
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
                 }
                 onReleased: {
                     home.height = window.height/6
@@ -132,7 +122,7 @@ Item {
         }
         Text{
             id:headingSettings
-            text:"SETTINGS  >  PHONE"
+            text:"SETTINGS  >  NAVIGATION"
             font.bold: true
             font.family: "Arial"
             font.pointSize: window.width * 18/1000
@@ -143,9 +133,9 @@ Item {
             anchors.topMargin: window.height * 45/600
         }
 
-//----Add Phone----//
+//----Home----//
         Rectangle{
-            id: addRect
+            id: homeRect
             //anchors.fill: radioButton
             height: window.height * 75/600
             width: window.width*  400/1000
@@ -157,10 +147,10 @@ Item {
             border.color: "white"
             border.width: 1
             Text{
-                anchors.verticalCenter: addRect.verticalCenter
-                anchors.horizontalCenter: addRect.horizontalCenter
+                anchors.verticalCenter: homeRect.verticalCenter
+                anchors.horizontalCenter: homeRect.horizontalCenter
                 color: "white"
-                text: "Add Phone"
+                text: "Home"
                 font.bold: true
                 font.pixelSize: window.width * 30/1000
             }
@@ -168,33 +158,33 @@ Item {
 
         MouseArea
         {
-            id: addButton
-            anchors.fill: addRect
+            id: homeButton1
+            anchors.fill: homeRect
             hoverEnabled: true
             onPressed: {
-                addRect.height = addRect.height * 0.75
-                addRect.width = addRect.width * 0.75
+                homeRect.height = homeRect.height * 0.75
+                homeRect.width = homeRect.width * 0.75
             }
 
             onReleased: {
-                addRect.height = addRect.height / 0.75
-                addRect.width = addRect.width / 0.75
+                homeRect.height = homeRect.height / 0.75
+                homeRect.width = homeRect.width / 0.75
             }
 
             onEntered: {
-                addRect.color="light blue"
+                homeRect.color="light blue"
             }
 
             onExited: {
-                addRect.color="transparent"
+                homeRect.color="transparent"
             }
 
     }
 
-//----Delete Phone---//
+//----Destination---//
 
         Rectangle{
-            id: deleteRect
+            id: destRect
             height: window.height * 75/600
             width: window.width*  400/1000
             anchors.left: verticalLine.right
@@ -206,10 +196,10 @@ Item {
             border.width: 1
             Text{
 
-                anchors.verticalCenter: deleteRect.verticalCenter
-                anchors.horizontalCenter: deleteRect.horizontalCenter
+                anchors.verticalCenter: destRect.verticalCenter
+                anchors.horizontalCenter: destRect.horizontalCenter
                 color: "white"
-                text: "Delete Phone"
+                text: "Add Destination"
                 font.bold: true
                 font.pixelSize: window.width * 30/1000
             }
@@ -217,36 +207,36 @@ Item {
 
         MouseArea
         {
-            id: deleteButton
-            anchors.fill: deleteRect
+            id: destButton
+            anchors.fill: destRect
             hoverEnabled: true
             onPressed: {
-                deleteRect.height = deleteRect.height * 0.75
-                deleteRect.width = deleteRect.width * 0.75
+                destRect.height = destRect.height * 0.75
+                destRect.width = destRect.width * 0.75
 
 
             }
 
             onReleased: {
-                deleteRect.height = deleteRect.height / 0.75
-                deleteRect.width = deleteRect.width / 0.75
+                destRect.height = destRect.height / 0.75
+                destRect.width = destRect.width / 0.75
 
             }
 
             onEntered: {
-                deleteRect.color="light blue"
+                destRect.color="light blue"
             }
 
             onExited: {
-                deleteRect.color="transparent"
+                destRect.color="transparent"
             }
 
     }
 
-//---Connect---//
+//---Saved---//
 
         Rectangle{
-            id: connectRect
+            id: savedRect
             height: window.height * 75/600
             width: window.width*  400/1000
             anchors.left: verticalLine.right
@@ -258,10 +248,10 @@ Item {
             border.width: 1
             Text{
                 id: connectText
-                anchors.verticalCenter: connectRect.verticalCenter
-                anchors.horizontalCenter: connectRect.horizontalCenter
+                anchors.verticalCenter: savedRect.verticalCenter
+                anchors.horizontalCenter: savedRect.horizontalCenter
                 color: "white"
-                text: "Connect a Paired Phone"
+                text: "Saved Places"
                 font.bold: true
                 font.pixelSize: window.width * 30/1000
             }
@@ -269,36 +259,35 @@ Item {
 
         MouseArea
         {
-            id: connectButton
-            anchors.fill: connectRect
+            id: savedButton
+            anchors.fill: savedRect
             hoverEnabled: true
             onPressed: {
-                connectRect.height = connectRect.height * 0.75
-                connectRect.width = connectRect.width * 0.75
-                connectText.font.pixelSize = connectText.font.pixelSize * 0.75
+                savedRect.height = savedRect.height * 0.75
+                savedRect.width = savedRect.width * 0.75
             }
 
             onReleased: {
-                connectRect.height = connectRect.height / 0.75
-                connectRect.width = connectRect.width / 0.75
-                connectText.font.pixelSize =  window.width * 30/1000
+                savedRect.height = savedRect.height / 0.75
+                savedRect.width = savedRect.width / 0.75
+
             }
 
             onEntered: {
-                connectRect.color="light blue"
+                savedRect.color="light blue"
             }
 
             onExited: {
-                connectRect.color="transparent"
+                savedRect.color="transparent"
             }
 
     }
 
 
-//---Device Info---//
+//---History---//
 
         Rectangle{
-            id: deviceRect
+            id: historyRect
             height: window.height * 75/600
             width: window.width*  400/1000
             anchors.left: verticalLine.right
@@ -309,10 +298,10 @@ Item {
             border.color: "white"
             border.width: 1
             Text{
-                anchors.verticalCenter: deviceRect.verticalCenter
-                anchors.horizontalCenter: deviceRect.horizontalCenter
+                anchors.verticalCenter: historyRect.verticalCenter
+                anchors.horizontalCenter: historyRect.horizontalCenter
                 color: "white"
-                text: "Device Info"
+                text: "History"
                 font.bold: true
                 font.pixelSize: window.width * 30/1000
             }
@@ -320,31 +309,26 @@ Item {
 
         MouseArea
         {
-            id: deviceButton
-            anchors.fill: deviceRect
+            id: historyButton
+            anchors.fill: historyRect
             hoverEnabled: true
             onPressed: {
-                deviceRect.height = deviceRect.height * 0.75
-                deviceRect.width = deviceRect.width * 0.75
+                historyRect.height = historyRect.height * 0.75
+                historyRect.width = historyRect.width * 0.75
             }
 
             onReleased: {
-                deviceRect.height = deviceRect.height / 0.75
-                deviceRect.width = deviceRect.width / 0.75
+                historyRect.height = historyRect.height / 0.75
+                historyRect.width = historyRect.width / 0.75
             }
 
             onEntered: {
-                deviceRect.color="light blue"
+                historyRect.color="light blue"
             }
 
             onExited: {
-                deviceRect.color="transparent"
+                historyRect.color="transparent"
             }
 
     }
-
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab

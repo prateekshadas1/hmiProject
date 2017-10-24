@@ -13,32 +13,22 @@ class LoadScreen : public QObject
 public:
     explicit LoadScreen(QObject *parent = nullptr)
     {
-<<<<<<< HEAD
-        m_engine = nullptr;
+        m_model=nullptr;
     }
-
-=======
-        m_engine=nullptr;
-    }
+    void setModel(QQuickItem* model);
+    void setMainWindow(QQmlApplicationEngine* window);
     bool addclimatecontrol=false;
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
-    void setEngine(QQmlApplicationEngine* engine);
 
 
 public slots:
      void onReleased(QVariant value);
-     int onEntered();
+     void onPlusPressed(QVariant value);
 
 public:
-<<<<<<< HEAD
+         QQuickItem* m_model;
+         QQuickWindow* m_window;
+         QQmlApplicationEngine* engine;
 
-         QQmlApplicationEngine* m_engine;
-
-
-=======
-         QQmlApplicationEngine* m_engine;
-
->>>>>>> 647df35d6b4b77f7bd84f77fbcce9e1c68f8ecab
 };
 
 #endif // LOADSCREEN_H
