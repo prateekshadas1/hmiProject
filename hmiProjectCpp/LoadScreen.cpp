@@ -24,32 +24,32 @@ void LoadScreen::onReleased(QVariant value)
      mainScreenElements phoneButton;
      phoneButton.name = "Phone";
      phoneButton.icon = "qrc:/Images/phone icon.png";
-     model2.addEntry(phoneButton);
+     //model2.addEntry(phoneButton);
 
      mainScreenElements radioButton;
      radioButton.name = "Radio";
      radioButton.icon = "qrc:/Images/radio1.png";
-     model2.addEntry(radioButton);
+     //model2.addEntry(radioButton);
 
      mainScreenElements mediaButton;
      mediaButton.name = "Media";
      mediaButton.icon = "qrc:/Images/media.png";
-     model2.addEntry(mediaButton);
+     //model2.addEntry(mediaButton);
 
      mainScreenElements navigationButton;
      navigationButton.name = "Navigation";
      navigationButton.icon = "qrc:/Images/gps.png";
-     model2.addEntry(navigationButton);
+     //model2.addEntry(navigationButton);
 
      mainScreenElements settingsButton;
      settingsButton.name = "Settings";
      settingsButton.icon = "qrc:/Images/setting icon.png";
-     model2.addEntry(settingsButton);
+     //model2.addEntry(settingsButton);
 
      mainScreenElements futureButton;
      futureButton.name = "Future";
      futureButton.icon = "qrc:/Images/plus.png";
-     model2.addEntry(futureButton);
+     //model2.addEntry(futureButton);
 
 
      QObject *object = m_engine->rootObjects().at(0);
@@ -64,16 +64,16 @@ int LoadScreen::onEntered()
 {
     ListModel test;
 
-    if (test.m_index == 0)
-    {
-         m_engine->load(QUrl(QStringLiteral("qrc:/PhoneScreen.qml")));
+//    if (test.m_index == 0)
+//    {
+//         m_engine->load(QUrl(QStringLiteral("qrc:/PhoneScreen.qml")));
 
-    }
+//    }
 
-    else
-    {
-        cout << " not loaded " << endl;
-    }
+//    else
+//    {
+//        cout << " not loaded " << endl;
+//    }
 
 
     if (m_engine->rootObjects().isEmpty())

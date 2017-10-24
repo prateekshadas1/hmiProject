@@ -1,19 +1,12 @@
 #include "ListModel.h"
 #include <iostream>
-#include <QQuickWindow>
-#include <ScreenTransitions.h>
+
 
 using namespace std;
 
-ListModel::ListModel(){
-    m_index = 0;
-}
 
-void ListModel::setEngine(QQmlApplicationEngine* engine)
+ListModel::ListModel()
 {
-    m_engine = engine;
-    QObject *object = engine->rootObjects().at(0);
-    m_window = qobject_cast <QQuickWindow*> (object);
 }
 
 
@@ -21,6 +14,7 @@ int ListModel::rowCount(const QModelIndex &parent) const
 {
     return m_elementList.count();
 }
+
 
 QHash<int, QByteArray> ListModel::roleNames() const
 {
@@ -30,6 +24,7 @@ QHash<int, QByteArray> ListModel::roleNames() const
     roleNames [2] = "icon"  ;
     return roleNames;
 }
+
 
 QVariant ListModel::data(const QModelIndex &index, int role) const
 {
@@ -63,10 +58,6 @@ void ListModel::addEntry(const mainScreenElements element)
     endInsertRows();
 }
 
-void ListModel::onRefresh(QVariant value)
-{
-    gridElements();
-}
 
 void ListModel::gridElements()
 {
@@ -99,28 +90,6 @@ void ListModel::gridElements()
     futureButton.name = "Future";
     futureButton.icon = "qrc:/Images/plus.png";
     addEntry(futureButton);
-
-    QQmlComponent* MainScreenComponent = new QQmlComponent(m_engine,QUrl("qrc:/MainScreen.qml"));
-    QQuickItem* MainScreenRootItem = qobject_cast <QQuickItem*> (MainScreenComponent->create());
-    MainScreenRootItem->setParentItem(m_window->contentItem());
-
-
-    QQuickItem* gridView = MainScreenRootItem->findChild<QQuickItem*>("gridView");
-    gridView->setProperty("model", QVariant::fromValue(this));
-
-    if (gridView!=nullptr)
-    {
-        QObject::connect(gridView, SIGNAL(released(int)), &screenTransitions2, SLOT(onReleased(int)));
-
-    }
-    else
-    {
-         cout << "grid mouse not found "<<endl;
-    }
-    screenTransitions2.setEngine(m_engine);
-
-
-
 }
 
 
