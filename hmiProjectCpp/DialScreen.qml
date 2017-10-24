@@ -10,9 +10,6 @@ Item {
     height: parent.height
     width: parent.width
 
-
-
-
     Background
     {
         mainScreenHeight: dialqml.height
@@ -22,15 +19,15 @@ Item {
 
     HomeButton
     {
-        id: homeqml
+        id: homeButton
+        objectName: "homeButton"
         mainScreenHeight: dialqml.height
         mainScreenWidth: dialqml.width
-
+        signal refresh(var val)
     }
 
     Image{
         id:phoneIcon
-
         source:"Images/phone icon.png"
         width: parent.width*0.1
         height: parent.height/8.5
@@ -39,8 +36,11 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:parent.width*120/1000
         fillMode: Image.PreserveAspectFit
+        objectName: "phoneIcon"
+        signal back
 
         MouseArea{
+            objectName: phoneIcon.objectName
             anchors.fill: phoneIcon
             onPressed: {
                 phoneIcon.height = phoneIcon.height * 0.75
@@ -49,6 +49,8 @@ Item {
             onReleased: {
                 phoneIcon.height = dialqml.height/6
                 phoneIcon.width = dialqml.width*0.1
+                phoneIcon.back()
+
                 //rootWindow.changeScreen("PhoneScreen.qml")
             }
         }

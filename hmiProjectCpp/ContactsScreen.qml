@@ -14,12 +14,13 @@ Item {
            mainScreenWidth: phoneScreen.width
        }
 
-
        HomeButton
        {
-           id: home
+           id: homeButton
+           objectName: "homeButton"
            mainScreenHeight: phoneScreen.height
            mainScreenWidth: phoneScreen.width
+           signal refresh(var val)
        }
 
        Image{
@@ -32,9 +33,12 @@ Item {
            anchors.left: parent.left
            anchors.leftMargin:parent.width*120/1000
            fillMode: Image.PreserveAspectFit
+           objectName: "phoneIcon"
+           signal back
 
            MouseArea{
                anchors.fill: phoneIcon
+               objectName: phoneIcon.objectName
                onPressed: {
                    phoneIcon.height = phoneIcon.height * 0.75
                    phoneIcon.width = phoneIcon.weight * 0.75
@@ -42,7 +46,7 @@ Item {
                onReleased: {
                    phoneIcon.height = parent.height/8.5
                    phoneIcon.width = parent.width*0.1
-                   rootWindow.changeScreen("PhoneScreen.qml")
+                   phoneIcon.back()
                }
            }
 

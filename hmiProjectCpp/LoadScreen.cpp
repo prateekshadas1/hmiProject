@@ -60,23 +60,4 @@ void LoadScreen::onReleased(QVariant value)
      gridView->update();
 }
 
-int LoadScreen::onEntered()
-{
-    ListModel test;
 
-//    if (test.m_index == 0)
-//    {
-//         m_engine->load(QUrl(QStringLiteral("qrc:/PhoneScreen.qml")));
-
-//    }
-
-//    else
-//    {
-//        cout << " not loaded " << endl;
-//    }
-
-
-    if (m_engine->rootObjects().isEmpty())
-        return -1;
-
-}

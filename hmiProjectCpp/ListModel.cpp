@@ -58,20 +58,12 @@ void ListModel::addEntry(const mainScreenElements element)
     endInsertRows();
 }
 
-<<<<<<< HEAD
-void ListModel::onRefresh()
-{
-    cout<<"inside home refresh"<<endl;
-    gridElements();
-}
-=======
->>>>>>> 459449a905815144838e3b0417bc6b335d46b2d5
 
 void ListModel::gridElements()
 {
     mainScreenElements phoneButton;
     phoneButton.name = "Phone";
-    phoneButton.icon = "qrc:/Images/phone icon.png";
+    phoneButton.icon = "qrc:/Images/phone1.png";
     addEntry(phoneButton);
 
     mainScreenElements radioButton;
@@ -98,35 +90,4 @@ void ListModel::gridElements()
     futureButton.name = "Future";
     futureButton.icon = "qrc:/Images/plus.png";
     addEntry(futureButton);
-<<<<<<< HEAD
-
-
-
-    QQmlComponent* MainScreenComponent = new QQmlComponent(m_engine,QUrl("qrc:/MainScreen.qml"));
-    QQuickItem* MainScreenRootItem = qobject_cast <QQuickItem*> (MainScreenComponent->create());
-    MainScreenRootItem->setParentItem(m_window->contentItem());
-
-
-    QQuickItem* gridView = MainScreenRootItem->findChild<QQuickItem*>("gridView");
-    gridView->setProperty("model", QVariant::fromValue(this));
-
-    if (gridView!=nullptr)
-    {
-        QObject::connect(gridView, SIGNAL(released(int)), &screenTransitions2, SLOT(onReleased(int)));
-
-    }
-    else
-    {
-         cout << "grid mouse not found "<<endl;
-    }
-
-    screenTransitions2.setWindow(m_window);
-    screenTransitions2.setEngine(m_engine);
-
-
-
-=======
->>>>>>> 459449a905815144838e3b0417bc6b335d46b2d5
 }
-
-

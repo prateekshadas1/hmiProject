@@ -16,9 +16,11 @@ Item {
 
     HomeButton
     {
-        id: home
+        id: homeButton
+        objectName: "homeButton"
         mainScreenHeight: phoneScreen.height
         mainScreenWidth: phoneScreen.width
+        signal refresh(var val)
     }
 
     Image{
@@ -31,8 +33,8 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:parent.width*120/1000
         fillMode: Image.PreserveAspectFit
-
     }
+
     Text{
         id:phoneHeader
         text:"PHONE"
@@ -90,7 +92,7 @@ Item {
     {
         id: dial
         objectName: "dial"
-        signal refresh(var value)
+        signal refresh(var val)
         anchors.left: verticalLine.left
         anchors.leftMargin: parent.width*80/1000
         anchors.bottom: parent.bottom
@@ -103,8 +105,6 @@ Item {
             color: "transparent"
             border.width: 1
             border.color: "gray"
-
-
 
             Text
             {
@@ -125,7 +125,6 @@ Item {
         onReleased: {
             dialrect.color = "transparent"
             dial.refresh("dial")
-            //rootWindow.changeScreen("DialScreen.qml")
         }
     }
 

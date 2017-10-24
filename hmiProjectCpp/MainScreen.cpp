@@ -7,6 +7,7 @@
 
 MainScreen::MainScreen(QObject *parent) : QObject(parent)
 {
+    phoneScreen = new PhoneScreen();
 }
 
 
@@ -30,6 +31,9 @@ void MainScreen::show()
     {
          std::cout << "grid mouse not found "<< std::endl;
     }
+
+//    phoneScreen = new PhoneScreen();
+    phoneScreen->setEngine(m_engine);
 }
 
 void MainScreen::setEngine(QQmlApplicationEngine* engine)
@@ -46,7 +50,7 @@ void MainScreen::onReleased(int index)
     switch(index)
     {
         case 0:
-            //PhoneScreen.Show();
+            phoneScreen->show();
             break;
 
         case 1:

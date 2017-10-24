@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
+#include <PhoneScreen.h>
 
 
 class MainScreen : public QObject
@@ -13,6 +14,8 @@ class MainScreen : public QObject
         explicit MainScreen(QObject *parent = nullptr);
         void show();
         void setEngine(QQmlApplicationEngine *engine);
+        PhoneScreen* phoneScreen;
+
 
     public slots:
         void onReleased(int index);

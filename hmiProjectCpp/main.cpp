@@ -8,6 +8,7 @@
 #include <LoadScreen.h>
 #include <ScreenTransitions.h>
 #include <MainScreen.h>
+#include <HomeButton.h>
 
 
 using namespace std;
@@ -25,6 +26,7 @@ int main(int argc, char  *argv[])
     MainScreen mainScreen;
     mainScreen.setEngine(&engine);
     mainScreen.show();
+
 
 
  return app.exec();

@@ -3,12 +3,8 @@ import QtQuick 2.0
 Item {
 
     id: item
-   objectName: "PhoneScreenHomeButton"
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
-
-signal refresh()
-
 
     Image {
         id: home
@@ -25,8 +21,10 @@ signal refresh()
 
         MouseArea
         {
-            objectName: item.objectName
+            id:mouse
+            objectName: homeButton.objectName
             anchors.fill: home
+
 
             onPressed:
             {
@@ -38,8 +36,7 @@ signal refresh()
             {
                 home.height=mainScreenHeight/6
                 home.width=mainScreenWidth*0.1
-                item.refresh()
-                //rootWindow.changeScreen("MainScreen.qml")
+                homeButton.refresh("home")
             }
         }
     }
