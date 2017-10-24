@@ -1,23 +1,12 @@
 #include "ListModel.h"
 #include <iostream>
-#include <QQuickWindow>
-#include <ScreenTransitions.h>
+
 
 using namespace std;
 
-ListModel::ListModel(){
-    m_index = 0;
-}
 
-void ListModel::setEngine(QQmlApplicationEngine* engine)
+ListModel::ListModel()
 {
-    m_engine = engine;
-
-}
-
-void ListModel::setWindow(QQuickWindow* window)
-{
-    m_window = window;
 }
 
 
@@ -25,6 +14,7 @@ int ListModel::rowCount(const QModelIndex &parent) const
 {
     return m_elementList.count();
 }
+
 
 QHash<int, QByteArray> ListModel::roleNames() const
 {
@@ -34,6 +24,7 @@ QHash<int, QByteArray> ListModel::roleNames() const
     roleNames [2] = "icon"  ;
     return roleNames;
 }
+
 
 QVariant ListModel::data(const QModelIndex &index, int role) const
 {
@@ -67,11 +58,14 @@ void ListModel::addEntry(const mainScreenElements element)
     endInsertRows();
 }
 
+<<<<<<< HEAD
 void ListModel::onRefresh()
 {
     cout<<"inside home refresh"<<endl;
     gridElements();
 }
+=======
+>>>>>>> 459449a905815144838e3b0417bc6b335d46b2d5
 
 void ListModel::gridElements()
 {
@@ -104,6 +98,7 @@ void ListModel::gridElements()
     futureButton.name = "Future";
     futureButton.icon = "qrc:/Images/plus.png";
     addEntry(futureButton);
+<<<<<<< HEAD
 
 
 
@@ -130,6 +125,8 @@ void ListModel::gridElements()
 
 
 
+=======
+>>>>>>> 459449a905815144838e3b0417bc6b335d46b2d5
 }
 
 
