@@ -7,7 +7,10 @@
 #include <QQuickWindow>
 #include <QQmlComponent>
 #include <string>
-#include <ListModel.h>
+//#include <ListModel.h>
+
+
+class ListModel;
 
 
 class ScreenTransitions: public QObject
@@ -30,6 +33,8 @@ public:
     void setEngine(QQmlApplicationEngine* engine);
     void setWindow(QQuickWindow* Mainwindow);
     void setScreen();
+    ListModel* homeScreen;
+
 
 
 
@@ -45,7 +50,7 @@ private:
      QUrl presentScreen;
      QQmlComponent* MainScreenComponent;
      QQuickItem* MainScreenRootItem;
-     ListModel home;
+
 };
 
 #endif // SCREENTRANSITIONS_H

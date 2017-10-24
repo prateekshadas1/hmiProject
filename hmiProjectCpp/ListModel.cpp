@@ -67,8 +67,9 @@ void ListModel::addEntry(const mainScreenElements element)
     endInsertRows();
 }
 
-void ListModel::onRefresh(QVariant value)
+void ListModel::onRefresh()
 {
+    cout<<"inside home refresh"<<endl;
     gridElements();
 }
 
@@ -103,6 +104,8 @@ void ListModel::gridElements()
     futureButton.name = "Future";
     futureButton.icon = "qrc:/Images/plus.png";
     addEntry(futureButton);
+
+
 
     QQmlComponent* MainScreenComponent = new QQmlComponent(m_engine,QUrl("qrc:/MainScreen.qml"));
     QQuickItem* MainScreenRootItem = qobject_cast <QQuickItem*> (MainScreenComponent->create());

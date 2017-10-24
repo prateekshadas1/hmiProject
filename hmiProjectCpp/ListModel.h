@@ -28,7 +28,7 @@
          QHash<int, QByteArray> roleNames() const;
          QVariant data(const QModelIndex &index, int role) const;
          void addEntry(const mainScreenElements element);
-         void setEngine(QQmlApplicationEngine *engine);
+         void setEngine(QQmlApplicationEngine* engine);
          void setWindow(QQuickWindow* window);
          void gridElements();
          ScreenTransitions screenTransitions2;
@@ -41,7 +41,7 @@
       QQuickItem* MainScreenRootItem;
       QQuickItem* gridView;
   public slots:
-      void onRefresh(QVariant value);
+      void onRefresh();
 
         };
 

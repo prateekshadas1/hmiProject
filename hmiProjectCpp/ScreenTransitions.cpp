@@ -77,8 +77,16 @@ void ScreenTransitions::setScreen()
 
     if (homebutton != nullptr)
     {
-        cout << "dial refresh found"<<endl;
-        QObject::connect(homebutton, SIGNAL(refresh(QVariant)), &homeScreen, SLOT(onRefresh(QVariant)));
+        cout << "home refresh found"<<endl;
+
+        homeScreen = new ListModel();
+
+        QObject::connect(homebutton, SIGNAL(refresh()), homeScreen, SLOT(onRefresh()));
+
+        homeScreen->setEngine(m_engine);
+        homeScreen->setWindow(m_MainWindow);
+
+
 
 
     }
@@ -94,6 +102,7 @@ void ScreenTransitions::setScreen()
     {
         cout << "contacts refresh found"<<endl;
         QObject::connect(contacts, SIGNAL(refresh(QVariant)), this, SLOT(onRefresh(QVariant)));
+
 
 
     }

@@ -7,7 +7,7 @@ Item {
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
 
-signal released(var value)
+signal refresh()
 
 
     Image {
@@ -38,7 +38,7 @@ signal released(var value)
             {
                 home.height=mainScreenHeight/6
                 home.width=mainScreenWidth*0.1
-                item.released("home")
+                item.refresh()
                 //rootWindow.changeScreen("MainScreen.qml")
             }
         }
