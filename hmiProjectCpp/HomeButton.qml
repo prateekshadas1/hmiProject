@@ -1,12 +1,17 @@
 import QtQuick 2.0
 
 Item {
+    id:homeButton
+
+    objectName: "homeButton"
+    signal refresh()
 
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
 
     Image {
         id: home
+
         anchors.top: parent.top
         anchors.topMargin: mainScreenHeight*18/600
         anchors.left: parent.left
@@ -18,8 +23,10 @@ Item {
         width:mainScreenWidth*0.1
 
         MouseArea
-               {
+               {   id:mouse
+                   objectName: homeButton.objectName
                    anchors.fill: home
+//                   activeFocus: true
 
                    onPressed:
                    {
@@ -31,7 +38,7 @@ Item {
                    {
                        home.height=mainScreenHeight/6
                        home.width=mainScreenWidth*0.1
-//                       rootWindow.changeScreen("MainScreen.qml")
+                       homeButton.refresh()
                    }
                }
     }

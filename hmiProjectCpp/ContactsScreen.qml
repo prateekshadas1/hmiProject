@@ -14,10 +14,9 @@ Item {
            mainScreenWidth: phoneScreen.width
        }
 
-
        HomeButton
        {
-           id: home
+           id: homeButton
            mainScreenHeight: phoneScreen.height
            mainScreenWidth: phoneScreen.width
        }
@@ -25,24 +24,27 @@ Item {
        Image{
            id:phoneIcon
            source:"Images/phone1.png"
-           width: phoneScreen.width*0.1
-           height: phoneScreen.height/8.5
-           anchors.top: phoneScreen.top
-           anchors.topMargin: phoneScreen.height*25/600
-           anchors.left: phoneScreen.left
-           anchors.leftMargin:phoneScreen.width*120/1000
+           width: parent.width*0.1
+           height: parent.height/8.5
+           anchors.top: parent.top
+           anchors.topMargin: parent.height*25/600
+           anchors.left: parent.left
+           anchors.leftMargin:parent.width*120/1000
            fillMode: Image.PreserveAspectFit
+           objectName: "phoneIcon"
+           signal back
 
            MouseArea{
                anchors.fill: phoneIcon
+               objectName: phoneIcon.objectName
                onPressed: {
-//                   phoneIcon.height = phoneIcon.height * 0.75
-//                   phoneIcon.width = phoneIcon.weight * 0.75
+                   phoneIcon.height = phoneIcon.height * 0.75
+                   phoneIcon.width = phoneIcon.weight * 0.75
                }
                onReleased: {
-//                   phoneIcon.height = phoneIcon.height/6
-//                   phoneIcon.width = phoneIcon.width*0.1
-//                   rootWindow.changeScreen("PhoneScreen.qml")
+                   phoneIcon.height = parent.height/8.5
+                   phoneIcon.width = parent.width*0.1
+                   phoneIcon.back()
                }
            }
 
@@ -158,7 +160,7 @@ Item {
                          width: grid.width*0.6
                          height: grid.height*0.06
                          color: "lightgreen"
-                         border.width: 1
+                         border.width: phoneScreen.width*1/1000
                          border.color: "black"
                          //fillMode: Image.PreserveAspectFit
                      }
@@ -179,6 +181,7 @@ Item {
                      }
                      MouseArea{
                          anchors.fill:myIcon
+//                         activeFocus:true
 
                          onPressed:
                          {  myIcon.width=(grid.width*0.6)*3/4
@@ -191,6 +194,7 @@ Item {
                          onReleased: {
                              myIcon.width=grid.width*0.6
                               myIcon.height=grid.height*0.06
+
                              textArea1.font.pixelSize = grid.width*0.02
 
                          }

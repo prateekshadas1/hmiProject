@@ -4,8 +4,8 @@ import QtQuick.Controls 2.2
 
 Item {
     id:phoneScreen
-    width: 1000
-    height: 600
+    width: parent.width
+    height: parent.height
 
     Background
     {
@@ -16,7 +16,7 @@ Item {
 
     HomeButton
     {
-        id: home
+        id: homeButton
         mainScreenHeight: phoneScreen.height
         mainScreenWidth: phoneScreen.width
     }
@@ -31,8 +31,8 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:parent.width*120/1000
         fillMode: Image.PreserveAspectFit
-
     }
+
     Text{
         id:phoneHeader
         text:"PHONE"
@@ -90,7 +90,8 @@ Item {
     {
         id: dial
         objectName: "dial"
-        signal refresh(var value)
+//        activeFocus: true
+        signal refresh(var val)
         anchors.left: verticalLine.left
         anchors.leftMargin: parent.width*80/1000
         anchors.bottom: parent.bottom
@@ -101,10 +102,8 @@ Item {
             id:dialrect
             anchors.fill: dial
             color: "transparent"
-            border.width: 1
+            border.width:phoneScreen.width*1/1000
             border.color: "gray"
-
-
 
             Text
             {
@@ -125,7 +124,6 @@ Item {
         onReleased: {
             dialrect.color = "transparent"
             dial.refresh("dial")
-            //rootWindow.changeScreen("DialScreen.qml")
         }
     }
 
@@ -143,7 +141,7 @@ Item {
             id: messagerect
             anchors.fill: message
             color: "transparent"
-            border.width: 1
+            border.width: phoneScreen.width*1/1000
             border.color: "gray"
 
 
@@ -172,6 +170,7 @@ Item {
     Button
     {
         id: contacts
+//        activeFocus: true
         objectName: "contacts"
         signal refresh(var val)
         anchors.left: message.right
@@ -184,7 +183,7 @@ Item {
             id:contactsrect
             anchors.fill: contacts
             color: "transparent"
-            border.width: 1
+            border.width: phoneScreen.width*1/1000
             border.color: "gray"
 
 
@@ -207,7 +206,6 @@ Item {
         onReleased: {
             contactsrect.color = "transparent"
             contacts.refresh("contacts")
-            //rootWindow.changeScreen("ContactsScreen.qml")
         }
     }
 }

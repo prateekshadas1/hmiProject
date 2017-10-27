@@ -8,8 +8,8 @@ Item {
 
     property int screenHeight: 600
     property int screenWidth: 1000
-    width: 1000
-    height: 600
+    width: parent.width
+    height: parent.height
     id: window
 
     Image
@@ -18,37 +18,11 @@ Item {
         source:"Images/backgroud screen1.jpg"
     }
 
-    Item
+    HomeButton
     {
-        id:homeButton
-        objectName: "mainScreenButton"
-        signal refresh
-
-        Image {
-            id: home
-            anchors.top:parent.top
-            anchors.topMargin: 18
-            anchors.left:parent.left
-            anchors.leftMargin: 10
-            fillMode: Image.PreserveAspectFit
-            source: "Images/home icon.png"
-            height:window.height/6
-            width:window.width*0.1
-
-            MouseArea{
-                anchors.fill: home
-                objectName: homeButton.objectName
-                onPressed: {
-                    home.height = home.height * 0.75
-                    home.width = home.weight * 0.75
-                }
-                onReleased: {
-                    home.height = window.height/6
-                    home.width = window.width*0.1
-                    homeButton.refresh()
-                }
-            }
-        }
+        id: homeButton
+        mainScreenHeight: window.height
+        mainScreenWidth: window.width
     }
 
     Item {
@@ -107,9 +81,9 @@ Item {
             width:window.width*0.1
             height:window.height/8.5
             anchors.top: parent.top
-            anchors.topMargin: 25
+            anchors.topMargin: window.height*25/600
             anchors.left: parent.left
-            anchors.leftMargin:120
+            anchors.leftMargin:window.width*120/1000
             fillMode: Image.PreserveAspectFit
 
         }
@@ -154,8 +128,10 @@ Item {
         MouseArea
         {
             id: radioButton
+            objectName: radioButton.objectName
             anchors.fill: radioRect
             hoverEnabled: true
+//            activeFocus: true
             onPressed: {
                 radioRect.height = radioRect.height * 0.75
                 radioRect.width = radioRect.width * 0.75
@@ -166,7 +142,6 @@ Item {
                 radioRect.width = radioRect.width / 0.75
                 radioRect.refresh("radioButton")
 
-//                rootWindow.changeScreen("RadioSettings.qml")
             }
 
             onEntered: {
@@ -207,8 +182,11 @@ Item {
         MouseArea
         {
             id: mediaButton
+            objectName: mediaButton.objectName
             anchors.fill: mediaRect
             hoverEnabled: true
+//            activeFocus: true
+
             onPressed: {
                 mediaRect.height = mediaRect.height * 0.75
                 mediaRect.width = mediaRect.width * 0.75
@@ -219,7 +197,6 @@ Item {
                 mediaRect.width = mediaRect.width / 0.75
                 mediaRect.refresh("mediaButton")
 
-//                rootWindow.changeScreen("MediaSettings.qml")
             }
 
             onEntered: {
@@ -260,7 +237,10 @@ Item {
         {
             id: phoneButton
             anchors.fill: phoneRect
+            objectName: phoneButton.objectName
             hoverEnabled: true
+//            activeFocus: true
+
             onPressed: {
                 phoneRect.height = phoneRect.height * 0.75
                 phoneRect.width = phoneRect.width * 0.75
@@ -271,7 +251,6 @@ Item {
                 phoneRect.width = phoneRect.width / 0.75
                 phoneRect.refresh("phoneButton")
 
-//                rootWindow.changeScreen("PhoneSettings.qml")
             }
 
             onEntered: {
@@ -312,7 +291,10 @@ Item {
         {
             id: navigationButton
             anchors.fill: navigationRect
+            objectName: navigationButton.objectName
             hoverEnabled: true
+//            activeFocus: true
+
             onPressed: {
                 navigationRect.height = navigationRect.height * 0.75
                 navigationRect.width = navigationRect.width * 0.75
@@ -323,7 +305,6 @@ Item {
                 navigationRect.width = navigationRect.width / 0.75
                 navigationRect.refresh("navigationButton")
 
-//                rootWindow.changeScreen("NavigationSettings.qml")
             }
 
             onEntered: {

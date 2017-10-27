@@ -5,8 +5,15 @@
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
 #include <PhoneScreen.h>
-
-
+#include <RadioScreen.h>
+#include <MediaScreen.h>
+#include <NavigationScreen.h>
+#include <SettingsScreen.h>
+class RadioScreen;
+class PhoneScreen;
+class MediaScreen;
+class NavigationScreen;
+class SettingsScreen;
 class MainScreen : public QObject
 {
     Q_OBJECT
@@ -14,7 +21,12 @@ class MainScreen : public QObject
         explicit MainScreen(QObject *parent = nullptr);
         void show();
         void setEngine(QQmlApplicationEngine *engine);
-        PhoneScreen phoneScreen;
+        PhoneScreen* phoneScreen;
+        RadioScreen* radioScreen;
+        MediaScreen* mediaScreen;
+        NavigationScreen* navigationScreen;
+        SettingsScreen* settingsScreen;
+
 
     public slots:
         void onReleased(int index);

@@ -17,34 +17,11 @@ Item {
         source:"Images/backgroud screen1.jpg"
     }
 
-    Item
+    HomeButton
     {
-        id:homeButton
-
-        Image {
-            id: home
-            anchors.top:parent.top
-            anchors.topMargin: window.height * 18/600
-            anchors.left:parent.left
-            anchors.leftMargin: window.width * 10/1000
-            fillMode: Image.PreserveAspectFit
-            source: "Images/home icon.png"
-            height:window.height/6
-            width:window.width*0.1
-
-            MouseArea{
-                anchors.fill: home
-                onPressed: {
-                    home.height = home.height * 0.75
-                    home.width = home.width * 0.75
-                }
-                onReleased: {
-                    home.height = window.height/6
-                    home.width = window.width*0.1
-                    rootWindow.changeScreen("MainScreen.qml")
-                }
-            }
-        }
+        id: homeButton
+        mainScreenHeight: window.height
+        mainScreenWidth: window.width
     }
 
     Item {
@@ -99,6 +76,8 @@ Item {
 
     Image{
         id:settingsIcon
+        objectName: "settingsIcon"
+        signal back()
         source:"Images/setting icon.png"
         width:window.width*0.1
         height:window.height/8.5
@@ -109,6 +88,7 @@ Item {
         fillMode: Image.PreserveAspectFit
         MouseArea{
             anchors.fill: settingsIcon
+            objectName: settingsIcon.objectName
             onPressed: {
                 settingsIcon.height = settingsIcon.height * 0.75
                 settingsIcon.width = settingsIcon.weight * 0.75
@@ -116,7 +96,7 @@ Item {
             onReleased: {
                 settingsIcon.height = window.height/6
                 settingsIcon.width = window.width*0.1
-                rootWindow.changeScreen("SettingsScreen.qml")
+                settingsIcon.back()
             }
         }
 

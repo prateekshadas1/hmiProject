@@ -1,32 +1,30 @@
-#ifndef PHONESCREEN_H
-#define PHONESCREEN_H
+#ifndef RADIOSCREEN_H
+#define RADIOSCREEN_H
 
 #include <QObject>
 #include <QQmlApplicationEngine>
-#include <HomeScreen.h>
 #include <QQuickWindow>
 #include <QQuickItem>
 #include <MainScreen.h>
-
+#include <HomeScreen.h>
 class HomeScreen;
 class MainScreen;
-class PhoneScreen : public QObject
+class RadioScreen:public QObject
 {
     Q_OBJECT
 
+
 public:
-    explicit PhoneScreen(QObject *parent = nullptr);
-    HomeScreen* homeScreen;
+    explicit RadioScreen(QObject *parent = nullptr);
     void setEngine(QQmlApplicationEngine* engine);
     void show();
-
+    HomeScreen* homeScreen;
 
 private:
     QQmlApplicationEngine* m_engine;
     QQuickWindow* m_window;
-    QQuickItem* PhoneScreenRootItem;
-    QQuickItem* dial;
-    QQuickItem* contacts;
+    QQuickItem* RadioScreenRootItem;
+    QQuickItem* browse;
     QQuickItem* homeButton;
     MainScreen* mainScreen2;
 
@@ -36,4 +34,4 @@ public slots:
     void onBack();
 };
 
-#endif // PHONESCREEN_H
+#endif // RADIOSCREEN_H

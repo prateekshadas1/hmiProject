@@ -9,42 +9,19 @@ Item {
     id: browse
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
-    height: mainScreenHeight
-    width: mainScreenWidth
+    height: parent.height
+    width: parent.width
 
     Background
     {
         mainScreenHeight: browse.height
         mainScreenWidth: browse.width
     }
-
-    Image {
-        id: homeButtons
-        anchors.top: browse.top
-        anchors.topMargin: browse.height*18/600
-        anchors.left: browse.left
-        anchors.leftMargin: browse.width*10/1000
-        fillMode: Image.PreserveAspectFit
-
-        source: "Images/home icon.png"
-        height: browse.height/6
-        width: browse.width*0.1
-
-        MouseArea{
-            anchors.fill: homeButtons
-            onPressed: {
-                homeButtons.height = homeButtons.height*0.75
-                homeButtons.width = homeButtons.width*0.75
-
-            }
-
-            onReleased: {
-                homeButtons.height = browse.height/6
-                homeButtons.width = browse.width*0.1
-                rootWindow.changeScreen("MainScreen.qml")
-            }
-
-            }
+    HomeButton
+    {
+        id: homeButton
+        mainScreenHeight: browse.height
+        mainScreenWidth: browse.width
     }
 
 
@@ -60,23 +37,25 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin:browse.width*120/1000
         fillMode: Image.PreserveAspectFit
+        objectName: "radioIcon"
+        signal back
 
         MouseArea{
            anchors.fill: radioIcon
+           objectName: radioIcon.objectName
            onEntered: {
 
 }
            onPressed: {
                radioIcon.height = radioIcon.height * 0.75
                radioIcon.width = radioIcon.weight * 0.75
-               console.log("on pressed")
 
            }
            onReleased: {
                radioIcon.height = browse.height/6
                radioIcon.width = browse.width*0.1
-               console.log("on released")
-//               rootWindow.changeScreen("RadioScreen.qml")
+               radioIcon.back()
+
 
            }
         }

@@ -14,11 +14,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     ListModel.cpp \
-    LoadScreen.cpp \
-    MainMenu.cpp \
-    ScreenTransitions.cpp \
     MainScreen.cpp \
-    PhoneScreen.cpp
+    PhoneScreen.cpp \
+    MediaScreen.cpp \
+    RadioScreen.cpp \
+    NavigationScreen.cpp \
+    SettingsScreen.cpp \
+    HomeScreen.cpp \
+    RootWindow.cpp
 
 RESOURCES += qml.qrc
 
@@ -35,8 +38,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ListModel.h \
-    LoadScreen.h \
-    MainMenu.h \
-    ScreenTransitions.h \
     MainScreen.h \
-    PhoneScreen.h
+    PhoneScreen.h \
+    MediaScreen.h \
+    RadioScreen.h \
+    NavigationScreen.h \
+    SettingsScreen.h \
+    HomeScreen.h \
+    RootWindow.h

@@ -4,68 +4,46 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 
 
-Item {
-    property int screenWidth
-    property int screenHeight
+Rectangle {
+
     objectName: "mainScreen"
     visible: true
-    width: 1000
-    height: 600
-    id: rootWindow
-    screenHeight: rootWindow.height
-    screenWidth: rootWindow.width
+    id: window
+    color: "transparent"
+    width: parent.width
+    height: parent.height
+Component.onCompleted: {
+    console.log(width)
+    console.log(height)
+}
     Image
     {
         anchors.fill:parent
         source:"Images/backgroud screen1.jpg"
     }
-
-    Item
+    HomeButton
     {
-
-
-        Image {
-            id: home
-            anchors.top:parent.top
-            anchors.topMargin: 18
-            anchors.left:parent.left
-            anchors.leftMargin: 10
-            fillMode: Image.PreserveAspectFit
-            source: "Images/home icon.png"
-            height:rootWindow.height/6
-            width:rootWindow.width*0.1
-        }
-
-        MouseArea{
-            id: homeButton
-            objectName: "homeButton"
-            anchors.fill: home
-            onPressed: {
-                home.height = home.height * 0.75
-                home.width = home.weight * 0.75
-            }
-            onReleased: {
-                home.height = rootWindow.height/6
-                home.width = rootWindow.width*0.1
-                //rootWindow.changeScreen("MainScreen.qml")
-            }
-        }
+        id: homeButton
+        mainScreenHeight: window.height
+        mainScreenWidth: window.width
     }
+
+
 
     Item {
         anchors.right:parent.right
         anchors.rightMargin: 20
         anchors.top: parent.top
         anchors.topMargin: 16
-        width: rootWindow.width*0.08
-        height: rootWindow.height*0.13
+        width: window.width*0.08
+        height: window.height*0.13
         Text
         {
             id:time
            anchors.centerIn: parent
            color:"white"
            font.bold:true
-           font.pixelSize: rootWindow.width*28/1000
+           font.pixelSize: window.width*28/1000
           }
 
             Timer
@@ -89,20 +67,20 @@ Item {
         height:1
         color: "gray"
         anchors.top: parent.top
-        anchors.topMargin: rootWindow.height*125/600
+        anchors.topMargin: window.height*125/600
     }
 
 
 
     Item
     {
-        height: rootWindow.height* (0.7)
-        width: rootWindow.width* (0.8)
+        height: window.height* (0.7)
+        width: window.width* (0.8)
         id: grid
         anchors.top: parent.top
-        anchors.topMargin: rootWindow.height*0.235
+        anchors.topMargin: window.height*0.235
         anchors.left: parent.left
-        anchors.leftMargin: rootWindow.width*172/1000
+        anchors.leftMargin: window.width*172/1000
 
            ListModel
             {
@@ -174,6 +152,7 @@ Item {
                   MouseArea{
                       objectName: "gridMouse"
                       anchors.fill:myIcon
+//                      activeFocus: true
                       hoverEnabled: true
                       onEntered: {
                           backgroundRectangle.visible = true
@@ -205,28 +184,6 @@ Item {
                           if(index===5)
                           {console.log("printing on clicked others")
                           }
-//                          if(index==0)
-//                          {window.released();}
-
-//                          if(textArea1.text == "Settings")
-//                          {
-//                              rootWindow.changeScreen("SettingsScreen.qml")
-//                          }
-//                          if(textArea1.text == "Radio")
-//                          {
-//                              rootWindow.changeScreen("RadioScreen.qml")
-//                          }
-
-//                          if(textArea1.text == "Media")
-//                          {
-//                              rootWindow.changeScreen("MediaScreen.qml")
-//                          }
-//                          if(textArea1.text == "Navigation")
-//                          {
-//                              rootWindow.changeScreen("NavigationScreen.qml")
-//                          }
-
-
 
 
                           }

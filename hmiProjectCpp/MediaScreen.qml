@@ -2,6 +2,7 @@ import QtQuick 2.8
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
+import QtQuick.Controls.Styles 1.3
 
 
 Item
@@ -9,8 +10,8 @@ Item
     visible: true
     property int screenHeight: 600
     property int screenWidth: 1000
-    width: screenWidth
-    height: screenHeight
+    width: parent.width
+    height: parent.height
     id: window
     Image
     {
@@ -18,19 +19,68 @@ Item
         source:"Images/backgroud screen1.jpg"
         anchors.fill: window
     }
-
-    ScreenTemplate{
-
+    HomeButton
+    {
+        id: homeButton
         mainScreenHeight: window.height
         mainScreenWidth: window.width
-        verticalLineVisible:true
-        imageSource:"Images/media.png"
-        //property string changeScreen: ""
-        screenHeading:"Media"
-        changeScreen: "MediaScreen.qml"
+    }
+    Image{
+        id:mediaIcon
+        objectName: "mediaIcon"
+        source:"Images/media.png"
+        width:window.width*0.1
+        height:window.height/8.5
+        anchors.top: parent.top
+        anchors.topMargin: window.height*25/600
+        anchors.left: parent.left
+        anchors.leftMargin:window.width*120/1000
+        fillMode: Image.PreserveAspectFit
 
     }
+    Text{
+        id:headingMedia
+        text:"MEDIA"
+        font.bold: true
+        font.family: "Arial"
+        font.pointSize: window.width*18/1000
+        color: "white"
+        anchors.left:mediaIcon.right
+        anchors.leftMargin: window.width*10/1000
+        anchors.top:parent.top
+        anchors.topMargin:window.height* 45/600
+    }
 
+
+    Time
+    {
+        anchors.right:parent.right
+        anchors.rightMargin: parent.width*20/1000
+        anchors.top: parent.top
+        anchors.topMargin: parent.height*16/600
+        mainScreenWidth: window.width
+        mainScreenHeight: window.height
+    }
+
+    Rectangle
+    {
+        id:horizontalLine
+        width:parent.width
+        height:1
+        color: "gray"
+        anchors.top: parent.top
+        anchors.topMargin: window.height*120/600
+    }
+    Rectangle
+    {
+        id:verticalLine
+        width:1
+        height:parent.height
+        color: "gray"
+        anchors.top: parent.top
+        anchors.left:parent.left
+        anchors.leftMargin: window.width*110/1000
+    }
 
 
     Rectangle{id:usb
@@ -219,7 +269,7 @@ Item
         MouseArea{anchors.fill:image4}
     }
 
-    Image{
+    Item{
         id:sliderimage
         anchors.top:parent.top
         anchors.topMargin:window.height*390/600
@@ -231,7 +281,7 @@ Item
             width:window.width*220/1000
             height:window.height*50/1000
             from:0
-            to:100
+            to:100          
             anchors.top:parent.top
             anchors.topMargin:parent.height*0.35
             anchors.left:parent.left
@@ -271,6 +321,7 @@ Item
 
 
             Text{
+
                 id:lowtext
                 anchors.top:slider.bottom
                 anchors.left:slider.left

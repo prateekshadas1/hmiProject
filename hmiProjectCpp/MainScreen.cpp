@@ -7,6 +7,11 @@
 
 MainScreen::MainScreen(QObject *parent) : QObject(parent)
 {
+    phoneScreen = new PhoneScreen();
+    radioScreen =new RadioScreen();
+    mediaScreen=new MediaScreen();
+    navigationScreen=new NavigationScreen();
+    settingsScreen=new SettingsScreen();
 }
 
 
@@ -23,6 +28,7 @@ void MainScreen::show()
 
     if (gridView!=nullptr)
     {
+        std::cout<<"gridview"<<std::endl;
         QObject::connect(gridView, SIGNAL(released(int)), this, SLOT(onReleased(int)));
 
     }
@@ -31,8 +37,11 @@ void MainScreen::show()
          std::cout << "grid mouse not found "<< std::endl;
     }
 
-
-    phoneScreen.setEngine(m_engine);
+    phoneScreen->setEngine(m_engine);
+    radioScreen->setEngine(m_engine);
+    mediaScreen->setEngine(m_engine);
+    navigationScreen->setEngine(m_engine);
+    settingsScreen->setEngine(m_engine);
 }
 
 void MainScreen::setEngine(QQmlApplicationEngine* engine)
@@ -49,10 +58,21 @@ void MainScreen::onReleased(int index)
     switch(index)
     {
         case 0:
-            phoneScreen.show();
+            phoneScreen->show();
             break;
 
         case 1:
+            radioScreen->show();
+            break;
+        case 2:
+           mediaScreen->show();
+           break;
+        case 3:
+           navigationScreen->show();
+           break;
+
+        case 4:
+            settingsScreen->show();
             break;
 
         default:

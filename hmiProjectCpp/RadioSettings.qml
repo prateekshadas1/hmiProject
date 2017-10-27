@@ -16,41 +16,18 @@ Item {
         source:"Images/backgroud screen1.jpg"
     }
 
-    Item
+    HomeButton
     {
-        id:homeButton
-
-        Image {
-            id: home
-            anchors.top:parent.top
-            anchors.topMargin: window.height *18/600
-            anchors.left:parent.left
-            anchors.leftMargin: window.width * 10/1000
-            fillMode: Image.PreserveAspectFit
-            source: "Images/home icon.png"
-            height:window.height/6
-            width:window.width*0.1
-
-            MouseArea{
-                anchors.fill: home
-                onPressed: {
-                    home.height = home.height * 0.75
-                    home.width = home.weight * 0.75
-                }
-                onReleased: {
-                    home.height = window.height/6
-                    home.width = window.width*0.1
-                    rootWindow.changeScreen("MainScreen.qml")
-                }
-            }
-        }
+        id: homeButton
+        mainScreenHeight: window.height
+        mainScreenWidth: window.width
     }
 
     Item {
         anchors.right:parent.right
         anchors.rightMargin: 20
         anchors.top: parent.top
-        anchors.topMargin: 16
+        anchors.topMargin: window.height*16/600
         width: window.width*0.08
         height: window.height*0.13
         Text
@@ -98,6 +75,8 @@ Item {
 
     Image{
             id:settingsIcon
+            objectName: "settingsIcon"
+            signal back()
             source:"Images/setting icon.png"
             width:window.width*0.1
             height:window.height/8.5
@@ -109,6 +88,7 @@ Item {
 
             MouseArea{
                 anchors.fill: settingsIcon
+                objectName: settingsIcon.objectName
                 onPressed: {
                     settingsIcon.height = settingsIcon.height * 0.75
                     settingsIcon.width = settingsIcon.weight * 0.75
@@ -116,7 +96,8 @@ Item {
                 onReleased: {
                     settingsIcon.height = window.height/6
                     settingsIcon.width = window.width*0.1
-                    rootWindow.changeScreen("SettingsScreen.qml")
+                    settingsIcon.back()
+//                    rootWindow.changeScreen("SettingsScreen.qml")
                 }
             }
 
@@ -129,7 +110,7 @@ Item {
             font.pointSize: window.width * 18/1000
             color: "white"
             anchors.left:settingsIcon.right
-            anchors.leftMargin: 10
+            anchors.leftMargin: window.width*10/1000
             anchors.top:parent.top
             anchors.topMargin: window.height * 45/600
         }
@@ -191,7 +172,7 @@ Item {
                      y: parent.height / 2 - height / 2
                       radius: width/2
                       color: "transparent"
-                      border.width: 2
+                      border.width: window.width*2/1000
                       border.color: "white"
 
                       Rectangle {
@@ -358,7 +339,7 @@ Item {
             anchors.topMargin: window.height * 235/600
             color: "transparent"
             border.color: "white"
-            border.width: 1
+            border.width: window.width*1/1000
             Text{
                 anchors.verticalCenter: radioTextRect.verticalCenter
                 anchors.horizontalCenter: radioTextRect.horizontalCenter
@@ -402,7 +383,7 @@ Item {
                      y: parent.height / 2 - height / 2
                       radius: width/2
                       color: "transparent"
-                      border.width: 2
+                      border.width: window.width*2/1000
                       border.color: "white"
 
                       Rectangle {
@@ -453,7 +434,7 @@ Item {
                      y: parent.height / 2 - height / 2
                       radius: width/2
                       color: "transparent"
-                      border.width: 2
+                      border.width: window.width*2/1000
                       border.color: "white"
 
                       Rectangle {
@@ -484,7 +465,7 @@ Item {
             anchors.topMargin: window.height * 330/600
             color: "transparent"
             border.color: "white"
-            border.width: 1
+            border.width: window.width*1/1000
             Text{
                 anchors.verticalCenter: stationsRect.verticalCenter
                 anchors.horizontalCenter: stationsRect.horizontalCenter
@@ -529,7 +510,7 @@ Item {
                      y: parent.height / 2 - height / 2
                       radius: width/2
                       color: "transparent"
-                      border.width: 2
+                      border.width: window.width*2/1000
                       border.color: "white"
 
                       Rectangle {
@@ -580,7 +561,7 @@ Item {
                      y: parent.height / 2 - height / 2
                       radius: width/2
                       color: "transparent"
-                      border.width: 2
+                      border.width: window.width*2/1000
                       border.color: "white"
 
                       Rectangle {

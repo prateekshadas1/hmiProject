@@ -16,11 +16,6 @@ void ScreenTransitions::setEngine(QQmlApplicationEngine* engine)
     m_MainWindow = qobject_cast<QQuickWindow*>(object);
 }
 
-//void ScreenTransitions::setWindow(QQuickWindow* Mainwindow)
-//{
-//    m_MainWindow = Mainwindow;
-//}
-
 void ScreenTransitions::onReleased(int index)
 {
     switch(index){
@@ -238,11 +233,11 @@ void ScreenTransitions::onRefresh(QVariant value)
 //    settingsButton.icon = "qrc:/Images/setting icon.png";
 //    model2.addEntry(settingsButton);
 
-////    mainScreenElements temperatureButton;
-////    temperatureButton.name = "Temperature";
-////    temperatureButton.icon = "qrc:/Images/thermometer.png";
+//    mainScreenElements temperatureButton;
+//    temperatureButton.name = "Temperature";
+//    temperatureButton.icon = "qrc:/Images/thermometer.png";
 
-////    model2.addEntry(temperatureButton);
+//    model2.addEntry(temperatureButton);
 
 
 //    mainScreenElements futureButton;
@@ -259,6 +254,4 @@ void ScreenTransitions::onRefresh(QVariant value)
 //    gridView->setProperty("model", QVariant::fromValue(&model2));
 //    QObject::connect(gridView, SIGNAL(released(int)), this, SLOT(onReleased(int)));
 
-
 //}
-

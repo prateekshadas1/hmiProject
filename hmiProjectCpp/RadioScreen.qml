@@ -10,8 +10,8 @@ Item {
     visible: true
     property int mainScreenHeight: 600
     property int mainScreenWidth: 1000
-    height: mainScreenHeight
-    width:mainScreenWidth
+    height: parent.height
+    width:parent.width
 
 
 
@@ -20,34 +20,17 @@ Item {
         mainScreenHeight: window.height
         mainScreenWidth: window.width
     }
-
-    Image {
+    HomeButton
+    {
         id: homeButton
-        anchors.top: window.top
-        anchors.topMargin: window.height*18/600
-        anchors.left: parent.left
-        anchors.leftMargin: window.width*10/1000
-        fillMode: Image.PreserveAspectFit
+        mainScreenHeight: window.height
+        mainScreenWidth: window.width
+    }
 
-        source: "Images/home icon.png"
-        height:window.height/6
-        width:window.width*0.1
-        MouseArea{
-            anchors.fill: homeButton
-            onPressed: {
-                homeButton.height=homeButton.height*0.75
-                homeButton.width=homeButton.width*0.75
-            }
-            onReleased: {
-                homeButton.height = window.height/6
-                homeButton.width = window.width*0.1
-                rootWindow.changeScreen("MainScreen.qml")
-            }
-    }
-    }
 
     Image{
         id:radioIcon
+        objectName: "radioIcon"
         source:"Images/radio1.png"
         width:window.width*0.1
         height:window.height/8.5
@@ -432,8 +415,8 @@ Item {
         MouseArea{
             id:browseMouseArea
             objectName: browseButton.objectName
-            width: 130
-            height: 50
+            width: window.width*130/1000
+            height: window.height*50/600
             anchors.fill:browseButton
             hoverEnabled: true
             onHoveredChanged: {
@@ -452,7 +435,6 @@ Item {
             onReleased: {
                 browseButton.refresh("browseButton")
 
-//                rootWindow.changeScreen("RadioBrowseScreen.qml")
 
 
             }
