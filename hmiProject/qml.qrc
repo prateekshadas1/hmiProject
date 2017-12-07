@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Images/backgroud screen1.jpg</file>
+        <file>Images/gps.png</file>
+        <file>Images/home icon.png</file>
+        <file>Images/media.png</file>
+        <file>Images/plus.png</file>
+        <file>Images/setting icon.png</file>
+        <file>Images/radio1.png</file>
+        <file>Images/phone icon.png</file>
+        <file>Images/connected screen.PNG</file>
+        <file>ScreenSrollCircle.qml</file>
+        <file>SettingsScreen.qml</file>
+        <file>RadioSettings.qml</file>
+        <file>GridImages.qml</file>
+        <file>PhoneSettings.qml</file>
+        <file>NavigationSettings.qml</file>
+        <file>MediaSettings.qml</file>
+        <file>MainScreen.qml</file>
+        <file>RadioScreen.qml</file>
+        <file>RadioBrowse.qml</file>
+        <file>Time.qml</file>
+        <file>Background.qml</file>
+        <file>Images/RadioTower.png</file>
+        <file>HomeButton.qml</file>
+        <file>PhoneScreen.qml</file>
+        <file>Keypad.qml</file>
+        <file>DialScreen.qml</file>
+        <file>ScreenTemplate.qml</file>
+        <file>MediaScreen.qml</file>
+        <file>Images/123.png</file>
+        <file>Images/backward.png</file>
+        <file>Images/forward .png</file>
+        <file>Images/Music-icon.png</file>
+        <file>Images/play 123.png</file>
+        <file>ContactsScreen.qml</file>
+        <file>NavigationScreen.qml</file>
+        <file>Images/location1.png</file>
+        <file>Images/position.png</file>
+        <file>Images/show map.jpg</file>
+        <file>Images/triangle1.png</file>
+    </qresource>
+</RCC>
